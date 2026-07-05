@@ -636,3 +636,20 @@ location.href="cart.html";
 };
 
 loadProduct();
+products.json
+
+↓
+
+products.js
+
+↓
+
+search.js
+
+↓
+
+render()
+
+↓
+
+hiển thị sản phẩm

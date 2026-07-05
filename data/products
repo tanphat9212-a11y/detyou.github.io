@@ -36,3 +36,27 @@
         "image":"assets/images/products/jean-1.jpg"
     }
 ]
+[
+  {
+    "id":1,
+    "name":"Áo Hoodie Premium",
+    "category":"Thời Trang",
+    "price":499000,
+    "salePrice":399000,
+    "rating":5,
+    "sold":253,
+    "image":"assets/images/products/product1.jpg",
+    "description":"Áo hoodie chất liệu cotton."
+  },
+  {
+    "id":2,
+    "name":"Nike Air Force 1",
+    "category":"Giày",
+    "price":3200000,
+    "salePrice":2690000,
+    "rating":5,
+    "sold":88,
+    "image":"assets/images/products/product2.jpg",
+    "description":"Nike chính hãng."
+  }
+]
