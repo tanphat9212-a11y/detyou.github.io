@@ -1,0 +1,87 @@
+import { fetchProducts } from "./api.js";
+import { addToCart } from "./cart.js";
+
+let allProducts = [];
+
+const box = document.querySelector(".products");
+
+export async function initRender(){
+  showLoading();
+
+  allProducts = await fetchProducts();
+
+  render(allProducts);
+}
+
+/* LOADING SKELETON */
+function showLoading(){
+  box.innerHTML = Array(6).fill(0).map(()=>`
+    <div class="skeleton-card"></div>
+  `).join("");
+}
+
+/* RENDER */
+export function render(list){
+
+  box.innerHTML = list.map(p=>`
+    <div class="product-card">
+
+      <img src="${p.image}">
+
+      <h3>${p.name}</h3>
+
+      <div class="price">
+        <span>${p.price.toLocaleString()}đ</span>
+        <del>${p.oldPrice.toLocaleString()}đ</del>
+      </div>
+
+      <button onclick="window.add(${p.id})">
+        Thêm giỏ hàng
+      </button>
+
+    </div>
+  `).join("");
+}
+
+/* FILTER */
+export function filterByCategory(cat){
+  if(cat === "all") return render(allProducts);
+
+  const filtered = allProducts.filter(p=>p.category === cat);
+  render(filtered);
+}
+
+/* SORT */
+export function sortProducts(type){
+
+  let sorted = [...allProducts];
+
+  if(type === "cheap"){
+    sorted.sort((a,b)=>a.price - b.price);
+  }
+
+  if(type === "expensive"){
+    sorted.sort((a,b)=>b.price - a.price);
+  }
+
+  if(type === "hot"){
+    sorted = sorted.filter(p=>p.isHot);
+  }
+
+  render(sorted);
+}
+
+/* SEARCH */
+export function searchProducts(keyword){
+  const result = allProducts.filter(p=>
+    p.name.toLowerCase().includes(keyword.toLowerCase())
+  );
+
+  render(result);
+}
+
+/* expose */
+window.add = (id)=>{
+  const product = allProducts.find(p=>p.id===id);
+  addToCart(product);
+};

@@ -1,0 +1,159 @@
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+const drawer = document.getElementById("cartDrawer");
+const overlay = document.getElementById("cartOverlay");
+const cartItems = document.getElementById("cartItems");
+const cartTotal = document.getElementById("cartTotal");
+const cartCount = document.querySelector(".cart-count");
+
+export function openCart(){
+  drawer.classList.add("open");
+  overlay.classList.add("show");
+  renderCart();
+}
+
+export function closeCart(){
+  drawer.classList.remove("open");
+  overlay.classList.remove("show");
+}
+
+export function addToCart(product){
+
+  const item = cart.find(i => i.id === product.id);
+
+  if(item){
+    item.qty++;
+  }else{
+    cart.push({...product, qty:1});
+  }
+
+  save();
+  renderCart();
+}
+
+export function removeItem(id){
+  cart = cart.filter(i => i.id !== id);
+  save();
+  renderCart();
+}
+
+export function changeQty(id, type){
+  const item = cart.find(i => i.id === id);
+
+  if(!item) return;
+
+  if(type === "inc") item.qty++;
+  if(type === "dec" && item.qty > 1) item.qty--;
+
+  save();
+  renderCart();
+}
+
+function save(){
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function renderCart(){
+
+  cartItems.innerHTML = "";
+  let total = 0;
+  let count = 0;
+
+  cart.forEach(item => {
+
+    total += item.price * item.qty;
+    count += item.qty;
+
+    cartItems.innerHTML += `
+      <div class="cart-item">
+        <img src="${item.image}">
+
+        <div class="cart-info">
+          <h4>${item.name}</h4>
+          <p>${item.price.toLocaleString()}đ</p>
+
+          <div class="qty">
+            <button onclick="window.changeQty(${item.id}, 'dec')">-</button>
+            <span>${item.qty}</span>
+            <button onclick="window.changeQty(${item.id}, 'inc')">+</button>
+          </div>
+
+          <button class="remove" onclick="window.removeItem(${item.id})">xóa</button>
+        </div>
+      </div>
+    `;
+  });
+
+  cartTotal.innerText = total.toLocaleString() + "đ";
+
+  if(cartCount){
+    cartCount.innerText = count;
+  }
+}
+
+// expose global
+window.changeQty = changeQty;
+window.removeItem = removeItem;
+
+export function initCart(){
+
+  const cartBtn = document.querySelector(".cart-btn");
+  const closeBtn = document.getElementById("closeCart");
+
+  cartBtn?.addEventListener("click", openCart);
+  closeBtn?.addEventListener("click", closeCart);
+  overlay?.addEventListener("click", closeCart);
+}
+
+/* AUTH */
+.auth, .checkout, .admin{
+  width:400px;
+  margin:50px auto;
+  padding:20px;
+  background:white;
+  border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.auth input,
+.checkout input,
+.admin input{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border:1px solid #ddd;
+  border-radius:8px;
+}
+
+/* BUTTON PRO */
+button{
+  background:#3b82f6;
+  color:white;
+  border:none;
+  padding:10px;
+  border-radius:10px;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+button:hover{
+  transform:scale(1.05);
+  background:#1d4ed8;
+}
+
+/* ORDER ITEM */
+#orderSummary div{
+  padding:5px 0;
+  border-bottom:1px solid #eee;
+}
+Product Page
+   ↓
+Add to Cart
+   ↓
+Cart Drawer
+   ↓
+Checkout Page
+   ↓
+Order Success
+   ↓
+Save Order History

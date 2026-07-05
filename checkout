@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Checkout</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="checkout">
+
+  <h2>Thanh toán đơn hàng</h2>
+
+  <div id="orderSummary"></div>
+
+  <input type="text" placeholder="Tên người nhận">
+  <input type="text" placeholder="Số điện thoại">
+  <input type="text" placeholder="Địa chỉ">
+
+  <select>
+    <option>COD (Thanh toán khi nhận hàng)</option>
+    <option>VNPay (giả lập)</option>
+  </select>
+
+  <button onclick="placeOrder()">Xác nhận đặt hàng</button>
+
+</div>
+
+<script src="checkout.js" type="module"></script>
+
+</body>
+</html>

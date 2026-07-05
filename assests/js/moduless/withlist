@@ -1,0 +1,18 @@
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+export function toggleWishlist(product){
+
+  const exist = wishlist.find(i => i.id === product.id);
+
+  if(exist){
+    wishlist = wishlist.filter(i => i.id !== product.id);
+  }else{
+    wishlist.push(product);
+  }
+
+  localStorage.setItem("wishlist", JSON.stringify(wishlist));
+}
+
+export function isLiked(id){
+  return wishlist.some(i => i.id === id);
+}

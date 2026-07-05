@@ -1,0 +1,76 @@
+// assets/js/data/products.js
+
+export const products = [
+  {
+    id: 1,
+    name: "Áo Hoodie Basic",
+    price: 499000,
+    oldPrice: 699000,
+    category: "ao",
+    image: "assets/images/hoodie.jpg",
+    rating: 4.8,
+    sold: 120,
+    discount: 29,
+    isHot: true
+  },
+  {
+    id: 2,
+    name: "Áo Thun Oversize",
+    price: 199000,
+    oldPrice: 299000,
+    category: "ao",
+    image: "assets/images/tshirt.jpg",
+    rating: 4.6,
+    sold: 340,
+    discount: 33,
+    isHot: false
+  },
+  {
+    id: 3,
+    name: "Quần Jean Slim Fit",
+    price: 599000,
+    oldPrice: 799000,
+    category: "quan",
+    image: "assets/images/jean.jpg",
+    rating: 4.9,
+    sold: 210,
+    discount: 25,
+    isHot: true
+  },
+  {
+    id: 4,
+    name: "Áo Khoác Bomber",
+    price: 799000,
+    oldPrice: 999000,
+    category: "ao",
+    image: "assets/images/bomber.jpg",
+    rating: 4.7,
+    sold: 98,
+    discount: 20,
+    isHot: false
+  },
+  {
+    id: 5,
+    name: "Giày Sneaker Trắng",
+    price: 899000,
+    oldPrice: 1200000,
+    category: "giay",
+    image: "assets/images/sneaker.jpg",
+    rating: 5.0,
+    sold: 560,
+    discount: 25,
+    isHot: true
+  }
+];
+<div class="product-card">
+  <img src="assets/images/hoodie.jpg">
+
+  <h3>Áo Hoodie Basic</h3>
+
+  <div class="price">
+    <span>499.000đ</span>
+    <del>699.000đ</del>
+  </div>
+
+  <button>Thêm giỏ hàng</button>
+</div>

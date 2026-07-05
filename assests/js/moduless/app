@@ -1,0 +1,18 @@
+import { initRender, filterByCategory, sortProducts, searchProducts } from "./render.js";
+
+initRender();
+
+/* CATEGORY */
+document.getElementById("category").addEventListener("change",(e)=>{
+  filterByCategory(e.target.value);
+});
+
+/* SORT */
+document.getElementById("sort").addEventListener("change",(e)=>{
+  sortProducts(e.target.value);
+});
+
+/* SEARCH */
+document.getElementById("search").addEventListener("input",(e)=>{
+  searchProducts(e.target.value);
+});

@@ -1,0 +1,85 @@
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+const box = document.getElementById("orderSummary");
+
+function renderOrder(){
+
+  let total = 0;
+
+  box.innerHTML = cart.map(i=>{
+    total += i.price * i.qty;
+
+    return `
+      <div>
+        ${i.name} - ${i.qty} x ${i.price.toLocaleString()}đ
+      </div>
+    `;
+  }).join("");
+
+  box.innerHTML += `<h3>Tổng: ${total.toLocaleString()}đ</h3>`;
+}
+
+renderOrder();
+
+/* PLACE ORDER */
+window.placeOrder = function(){
+
+  localStorage.removeItem("cart");
+
+  alert("Đặt hàng thành công 🎉");
+
+  window.location.href = "/";
+};
+
+/* AUTH */
+.auth, .checkout, .admin{
+  width:400px;
+  margin:50px auto;
+  padding:20px;
+  background:white;
+  border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.auth input,
+.checkout input,
+.admin input{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border:1px solid #ddd;
+  border-radius:8px;
+}
+
+/* BUTTON PRO */
+button{
+  background:#3b82f6;
+  color:white;
+  border:none;
+  padding:10px;
+  border-radius:10px;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+button:hover{
+  transform:scale(1.05);
+  background:#1d4ed8;
+}
+
+/* ORDER ITEM */
+#orderSummary div{
+  padding:5px 0;
+  border-bottom:1px solid #eee;
+}
+Product Page
+   ↓
+Add to Cart
+   ↓
+Cart Drawer
+   ↓
+Checkout Page
+   ↓
+Order Success
+   ↓
+Save Order History

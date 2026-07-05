@@ -1,0 +1,85 @@
+/* ==========================================================================
+   DESIGN TOKENS — TechNova
+   Hệ thống biến dùng chung cho toàn bộ site (màu sắc, typography, spacing...)
+   ========================================================================== */
+
+:root {
+  /* --- Màu thương hiệu (theo yêu cầu) --- */
+  --color-primary: #ff6b00;
+  --color-primary-dark: #e35f00;
+  --color-secondary: #ffb547;
+  --color-accent: #3b82f6;
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+  --color-warning: #f59e0b;
+
+  /* --- Nền & bề mặt (Light mode) --- */
+  --color-bg: #f8fafc;
+  --color-card: #ffffff;
+  --color-border: #e5e9f0;
+  --color-text: #111827;
+  --color-text-muted: #5b6472;
+  --color-text-soft: #8a93a1;
+  --color-overlay: rgba(17, 24, 39, 0.55);
+  --color-glass: rgba(255, 255, 255, 0.65);
+
+  /* --- Bề mặt "spec readout" (điểm nhấn phong cách công nghệ) --- */
+  --color-readout-bg: #111827;
+  --color-readout-text: #ffb547;
+  --color-readout-line: rgba(255, 181, 71, 0.25);
+
+  /* --- Typography --- */
+  --font-display: 'Poppins', 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Space Mono', ui-monospace, monospace;
+
+  /* --- Spacing scale --- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+
+  /* --- Bo góc & bóng --- */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 2px 8px rgba(17, 24, 39, 0.06);
+  --shadow-md: 0 8px 24px rgba(17, 24, 39, 0.08);
+  --shadow-lg: 0 20px 48px rgba(17, 24, 39, 0.14);
+  --shadow-glow: 0 0 0 1px rgba(255, 107, 0, 0.12), 0 12px 32px rgba(255, 107, 0, 0.18);
+
+  /* --- Layout --- */
+  --container-max: 1280px;
+  --header-height: 76px;
+
+  /* --- Transition --- */
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-fast: 0.18s var(--ease-smooth);
+  --transition-base: 0.32s var(--ease-smooth);
+}
+
+/* --- Dark mode --- */
+[data-theme='dark'] {
+  --color-bg: #0b0f17;
+  --color-card: #141b28;
+  --color-border: #232d3d;
+  --color-text: #f3f5f8;
+  --color-text-muted: #aab2c0;
+  --color-text-soft: #6b7484;
+  --color-overlay: rgba(0, 0, 0, 0.65);
+  --color-glass: rgba(20, 27, 40, 0.65);
+
+  --color-readout-bg: #05070c;
+  --color-readout-text: #ffb547;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.45);
+}

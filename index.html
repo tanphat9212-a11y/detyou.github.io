@@ -144,3 +144,50 @@
 </body>
 
 </html>
+<script type="module" src="assets/js/main.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f8fafc;
+}
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cartOverlay"></div>
+
+<div class="cart-drawer" id="cartDrawer">
+
+  <div class="cart-header">
+    <h3>🛒 Giỏ hàng</h3>
+    <button id="closeCart">✖</button>
+  </div>
+
+  <div class="cart-items" id="cartItems">
+    <!-- JS render -->
+  </div>
+
+  <div class="cart-footer">
+    <div class="cart-total">
+      Tổng: <span id="cartTotal">0đ</span>
+    </div>
+    <button class="checkout-btn">Thanh toán</button>
+  </div>
+
+</div>
+<div class="controls">
+
+  <select id="category">
+    <option value="all">Tất cả</option>
+    <option value="ao">Áo</option>
+    <option value="quan">Quần</option>
+    <option value="giay">Giày</option>
+  </select>
+
+  <select id="sort">
+    <option value="">Sắp xếp</option>
+    <option value="cheap">Rẻ nhất</option>
+    <option value="expensive">Đắt nhất</option>
+    <option value="hot">Hot</option>
+  </select>
+
+  <input id="search" placeholder="Tìm sản phẩm...">
+
+</div>
