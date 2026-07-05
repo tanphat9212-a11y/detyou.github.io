@@ -202,3 +202,104 @@ const products = [
 ];
 
 export default products;
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Detail</title>
+<link rel="stylesheet" href="assets/css/product.css">
+</head>
+
+<body>
+
+<div class="product-page">
+
+  <div class="product-images">
+    <img id="mainImg" class="main-image" src="" />
+
+    <div class="thumbnail-list" id="thumbs"></div>
+  </div>
+
+  <div class="product-info">
+    <h1 id="title"></h1>
+
+    <div class="product-price">
+      <span id="price"></span>
+      <span class="old-price" id="oldPrice"></span>
+    </div>
+
+    <p id="desc"></p>
+
+    <div class="quantity">
+      <button onclick="changeQty(-1)">-</button>
+      <input id="qty" value="1"/>
+      <button onclick="changeQty(1)">+</button>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-cart" onclick="addCart()">Thêm giỏ hàng</button>
+      <button class="btn btn-buy" onclick="buyNow()">Mua ngay</button>
+    </div>
+
+  </div>
+
+</div>
+
+<script type="module">
+import products from "./data/products.js";
+
+const id = new URLSearchParams(location.search).get("id");
+const p = products.find(x => x.id == id);
+
+document.getElementById("title").innerText = p.name;
+document.getElementById("price").innerText = p.price.toLocaleString()+"₫";
+document.getElementById("oldPrice").innerText = p.oldPrice.toLocaleString()+"₫";
+document.getElementById("desc").innerText = p.description;
+
+const mainImg = document.getElementById("mainImg");
+mainImg.src = p.images[0];
+
+const thumbs = document.getElementById("thumbs");
+
+p.images.forEach(img=>{
+  const i = document.createElement("img");
+  i.src = img;
+  i.onclick = ()=> mainImg.src = img;
+  thumbs.appendChild(i);
+});
+
+window.changeQty = (v)=>{
+  const q = document.getElementById("qty");
+  let val = parseInt(q.value);
+  val += v;
+  if(val < 1) val = 1;
+  q.value = val;
+};
+
+window.addCart = ()=>{
+  let cart = JSON.parse(localStorage.getItem("cart")||"[]");
+
+  const qty = parseInt(document.getElementById("qty").value);
+
+  const exist = cart.find(x=>x.id==p.id);
+
+  if(exist){
+    exist.qty += qty;
+  }else{
+    cart.push({...p, qty});
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert("Đã thêm vào giỏ");
+};
+
+window.buyNow = ()=>{
+  addCart();
+  location.href="cart.html";
+};
+</script>
+
+</body>
+</html>
