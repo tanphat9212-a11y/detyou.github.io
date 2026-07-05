@@ -3,78 +3,71 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Shopee Clone - Home</title>
-
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <title>ShopVN</title>
+  <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header class="header">
-    <div class="logo">ShopVN</div>
+<header class="header">
+  <div class="logo">ShopVN</div>
 
-    <div class="search">
-      <input type="text" placeholder="Tìm sản phẩm..." />
-      <button>Tìm</button>
-    </div>
-
-    <div class="cart">
-      🛒 Giỏ hàng
-    </div>
-  </header>
-
-  <!-- NAV -->
-  <nav class="nav">
-    <a href="#">Trang chủ</a>
-    <a href="#">Thời trang</a>
-    <a href="#">Giày dép</a>
-    <a href="#">Điện tử</a>
-    <a href="#">Phụ kiện</a>
-  </nav>
-
-  <!-- CONTENT -->
-  <div class="container">
-
-    <h2 style="margin-bottom:15px;">Sản phẩm nổi bật</h2>
-
-    <div class="grid" id="productGrid"></div>
-
+  <div class="search">
+    <input type="text" placeholder="Tìm sản phẩm..." />
+    <button>🔍</button>
   </div>
 
-  <!-- FOOTER -->
-  <div class="footer">
-    © 2026 ShopVN - Clone Shopee UI
+  <div class="cart">🛒 Giỏ hàng</div>
+</header>
+
+<nav class="nav">
+  <a href="#">Trang chủ</a>
+  <a href="#">Thời trang</a>
+  <a href="#">Giày dép</a>
+  <a href="#">Điện tử</a>
+  <a href="#">Phụ kiện</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Mua sắm hiện đại</h1>
+    <p>Giá tốt - Giao nhanh - Uy tín</p>
+    <button class="btn">Mua ngay</button>
   </div>
+</section>
 
-  <script type="module">
-    import products from "./data/products.js";
+<section class="container">
+  <h2>Sản phẩm nổi bật</h2>
+  <div class="grid" id="productGrid"></div>
+</section>
 
-    const grid = document.getElementById("productGrid");
+<footer class="footer">
+  © 2026 ShopVN
+</footer>
 
-    function formatPrice(n) {
-      return n.toLocaleString("vi-VN") + "₫";
-    }
+<script type="module">
+import products from "./data/products.js";
 
-    products.forEach(p => {
-      const card = document.createElement("div");
-      card.className = "card";
+const grid = document.getElementById("productGrid");
 
-      card.innerHTML = `
-        <img src="${p.images[0]}" />
-        <div class="card-body">
-          <div class="card-title">${p.name}</div>
-          <div class="price">${formatPrice(p.price)}</div>
-          <div class="old-price">${formatPrice(p.oldPrice)}</div>
-          <button class="btn" onclick="location.href='product-detail.html?id=${p.id}'">
-            Xem chi tiết
-          </button>
-        </div>
-      `;
+products.forEach(p => {
+  const div = document.createElement("div");
+  div.className = "card";
 
-      grid.appendChild(card);
-    });
-  </script>
+  div.innerHTML = `
+    <img src="${p.images[0]}"/>
+    <div class="card-body">
+      <div class="card-title">${p.name}</div>
+      <div class="price">${p.price.toLocaleString()}₫</div>
+      <button class="btn" onclick="location.href='product-detail.html?id=${p.id}'">
+        Xem
+      </button>
+    </div>
+  `;
+
+  grid.appendChild(div);
+});
+</script>
 
 </body>
 </html>
