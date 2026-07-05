@@ -1,0 +1,38 @@
+[
+    {
+        "id":1,
+        "name":"Áo Hoodie Premium",
+        "category":"Áo",
+        "brand":"DetYou",
+        "price":499000,
+        "salePrice":399000,
+        "rating":5,
+        "sold":1250,
+        "color":"Đen",
+        "image":"assets/images/products/hoodie-1.jpg"
+    },
+    {
+        "id":2,
+        "name":"Áo Thun Local Brand",
+        "category":"Áo",
+        "brand":"DetYou",
+        "price":299000,
+        "salePrice":199000,
+        "rating":4,
+        "sold":820,
+        "color":"Trắng",
+        "image":"assets/images/products/tshirt-1.jpg"
+    },
+    {
+        "id":3,
+        "name":"Quần Jean Slim Fit",
+        "category":"Quần",
+        "brand":"DetYou",
+        "price":599000,
+        "salePrice":449000,
+        "rating":5,
+        "sold":650,
+        "color":"Xanh",
+        "image":"assets/images/products/jean-1.jpg"
+    }
+]

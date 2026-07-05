@@ -1,0 +1,14 @@
+src/
+ ├── app/
+ ├── components/
+ │    ├── Header
+ │    ├── Footer
+ │    ├── ProductCard
+ │    ├── Cart
+ │    └── Search
+ ├── pages/
+ ├── hooks/
+ ├── lib/
+ ├── api/
+ ├── assets/
+ └── styles/

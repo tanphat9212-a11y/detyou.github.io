@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Đăng ký</title>
+
+<style>
+body{
+font-family:Arial;
+background:#f5f5f5;
+margin:0;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.box{
+width:380px;
+background:#fff;
+padding:25px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+h2{
+text-align:center;
+color:#ee4d2d;
+margin-bottom:20px;
+}
+
+input{
+width:100%;
+padding:12px;
+margin:8px 0;
+border:1px solid #ddd;
+border-radius:6px;
+outline:none;
+}
+
+input:focus{
+border-color:#ee4d2d;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#ee4d2d;
+color:#fff;
+border:none;
+border-radius:6px;
+cursor:pointer;
+margin-top:10px;
+}
+
+button:hover{
+background:#d84324;
+}
+
+p{
+text-align:center;
+margin-top:15px;
+font-size:14px;
+}
+
+a{
+color:#ee4d2d;
+text-decoration:none;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Đăng ký</h2>
+
+<form id="registerForm">
+
+<input type="text" id="name" placeholder="Họ và tên">
+
+<input type="email" id="email" placeholder="Email">
+
+<input type="password" id="password" placeholder="Mật khẩu">
+
+<input type="password" id="confirm" placeholder="Nhập lại mật khẩu">
+
+<button type="submit">Đăng ký</button>
+
+</form>
+
+<p>
+Đã có tài khoản?
+<a href="login.html">Đăng nhập</a>
+</p>
+
+</div>
+
+<script>
+document.getElementById("registerForm").addEventListener("submit",function(e){
+e.preventDefault();
+
+let name=document.getElementById("name").value.trim();
+let email=document.getElementById("email").value.trim();
+let pass=document.getElementById("password").value;
+let confirm=document.getElementById("confirm").value;
+
+if(!name || !email || !pass || !confirm){
+alert("Vui lòng nhập đầy đủ thông tin");
+return;
+}
+
+if(pass !== confirm){
+alert("Mật khẩu không khớp");
+return;
+}
+
+alert("Đăng ký thành công!");
+window.location.href="login.html";
+
+});
+</script>
+
+</body>
+</html>

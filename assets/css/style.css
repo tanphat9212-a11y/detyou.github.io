@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ========================= */
+
+.container{
+
+    width:var(--container);
+
+    margin:auto;
+
+}
+
+section{
+
+    padding:60px 0;
+
+}
+
+.title{
+
+    font-size:32px;
+
+    font-weight:700;
+
+    margin-bottom:35px;
+
+}
+
+.btn{
+
+    padding:14px 28px;
+
+    background:var(--primary);
+
+    color:white;
+
+    border-radius:8px;
+
+    transition:var(--transition);
+
+}
+
+.btn:hover{
+
+    background:var(--primary-hover);
+
+}
+
+.card{
+
+    background:white;
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+}
+
+.hidden{
+
+    display:none;
+
+}
+/*==========================================
+
+BACK TO TOP
+
+==========================================*/
+
+.back-top{
+
+position:fixed;
+
+right:30px;
+
+bottom:30px;
+
+width:52px;
+
+height:52px;
+
+border:none;
+
+border-radius:50%;
+
+background:var(--primary);
+
+color:#fff;
+
+font-size:18px;
+
+cursor:pointer;
+
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+opacity:0;
+
+visibility:hidden;
+
+transform:translateY(20px);
+
+transition:.3s;
+
+z-index:999;
+
+}
+
+.back-top.show{
+
+opacity:1;
+
+visibility:visible;
+
+transform:translateY(0);
+
+}
+
+.back-top:hover{
+
+background:var(--primary-hover);
+
+}
+
+/*==========================================
+
+SCROLL ANIMATION
+
+==========================================*/
+
+.animate{
+
+opacity:0;
+
+transform:translateY(40px);
+
+transition:.7s;
+
+}
+
+.animate.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+}

@@ -1,193 +1,549 @@
-<!DOCTYPE html>
-<html lang="vi">
+<!-- ===========================
+HEADER
+=========================== -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DetYou Shop</title>
+<header>
 
-    <link rel="stylesheet" href="base.css">
-    <link rel="stylesheet" href="variables.css">
-    <link rel="stylesheet" href="layout.css">
-    <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="hero.css">
-    <link rel="stylesheet" href="products.css">
-    <link rel="stylesheet" href="countdown.css">
-    <link rel="stylesheet" href="cart.css">
-    <link rel="stylesheet" href="footer.css">
-    <link rel="stylesheet" href="responsive.css">
-</head>
+    <!-- TOP BAR -->
 
-<body>
+    <div class="top-bar">
 
-    <!-- HEADER -->
-    <header class="header">
+        <div class="container">
 
-        <div class="logo">
-            <h2>DetYou Shop</h2>
-        </div>
+            <div class="top-left">
 
-        <nav class="nav">
-            <a href="#">Trang chủ</a>
-            <a href="#">Sản phẩm</a>
-            <a href="#">Flash Sale</a>
-            <a href="#">Liên hệ</a>
-        </nav>
+                <a href="#">Kênh Người Bán</a>
 
-        <div class="cart">
-            🛒 0
-        </div>
+                <a href="#">Tải ứng dụng</a>
 
-    </header>
+                <a href="#">Kết nối</a>
 
-    <!-- HERO -->
-    <section class="hero">
+                <i class="fab fa-facebook"></i>
 
-        <div class="hero-content">
-
-            <h1>DetYou Shop</h1>
-
-            <p>
-                Thời trang hiện đại - Giá tốt mỗi ngày.
-            </p>
-
-            <button>Mua ngay</button>
-
-        </div>
-
-    </section>
-
-    <!-- FLASH SALE -->
-
-    <section class="flash-sale">
-
-        <div>
-
-            <h2>⚡ FLASH SALE</h2>
-
-            <p>Kết thúc sau:</p>
-
-        </div>
-
-        <div class="countdown">
-
-            <span>08</span> :
-            <span>35</span> :
-            <span>20</span>
-
-        </div>
-
-    </section>
-
-    <!-- PRODUCTS -->
-
-    <section class="products">
-
-        <h2>Sản phẩm nổi bật</h2>
-
-        <div class="product-grid">
-
-            <div class="product-card">
-
-                <img src="https://via.placeholder.com/250x250" alt="">
-
-                <h3>Áo Hoodie</h3>
-
-                <p>499.000đ</p>
-
-                <button>Thêm giỏ hàng</button>
+                <i class="fab fa-instagram"></i>
 
             </div>
 
-            <div class="product-card">
+            <div class="top-right">
 
-                <img src="https://via.placeholder.com/250x250" alt="">
+                <a href="#">
 
-                <h3>Áo Thun</h3>
+                    <i class="fa-regular fa-bell"></i>
 
-                <p>199.000đ</p>
+                    Thông báo
 
-                <button>Thêm giỏ hàng</button>
+                </a>
 
-            </div>
+                <a href="#">
 
-            <div class="product-card">
+                    <i class="fa-regular fa-circle-question"></i>
 
-                <img src="https://via.placeholder.com/250x250" alt="">
+                    Hỗ trợ
 
-                <h3>Quần Jean</h3>
+                </a>
 
-                <p>599.000đ</p>
+                <a href="#">
 
-                <button>Thêm giỏ hàng</button>
+                    Đăng ký
+
+                </a>
+
+                <a href="#">
+
+                    Đăng nhập
+
+                </a>
 
             </div>
 
         </div>
 
-    </section>
-
-    <!-- FOOTER -->
-
-    <footer class="footer">
-
-        <h3>DetYou Shop</h3>
-
-        <p>Email: detyou@gmail.com</p>
-
-        <p>Hotline: 0123 456 789</p>
-
-        <p>© 2025 DetYou Shop</p>
-
-    </footer>
-
-</body>
-
-</html>
-<script type="module" src="assets/js/main.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-body{
-    font-family:'Poppins',sans-serif;
-    background:#f8fafc;
-}
-<!-- CART DRAWER -->
-<div class="cart-overlay" id="cartOverlay"></div>
-
-<div class="cart-drawer" id="cartDrawer">
-
-  <div class="cart-header">
-    <h3>🛒 Giỏ hàng</h3>
-    <button id="closeCart">✖</button>
-  </div>
-
-  <div class="cart-items" id="cartItems">
-    <!-- JS render -->
-  </div>
-
-  <div class="cart-footer">
-    <div class="cart-total">
-      Tổng: <span id="cartTotal">0đ</span>
     </div>
-    <button class="checkout-btn">Thanh toán</button>
-  </div>
 
-</div>
-<div class="controls">
+    <!-- MAIN HEADER -->
 
-  <select id="category">
-    <option value="all">Tất cả</option>
-    <option value="ao">Áo</option>
-    <option value="quan">Quần</option>
-    <option value="giay">Giày</option>
-  </select>
+    <div class="main-header">
 
-  <select id="sort">
-    <option value="">Sắp xếp</option>
-    <option value="cheap">Rẻ nhất</option>
-    <option value="expensive">Đắt nhất</option>
-    <option value="hot">Hot</option>
-  </select>
+        <div class="container">
 
-  <input id="search" placeholder="Tìm sản phẩm...">
+            <!-- LOGO -->
 
-</div>
+            <a href="index.html" class="logo">
+
+                <i class="fa-solid fa-store"></i>
+
+                <span>DetYou Shop</span>
+
+            </a>
+
+            <!-- SEARCH -->
+
+            <div class="search-box">
+
+                <div class="search">
+
+                    <input
+
+                        id="searchInput"
+
+                        type="text"
+
+                        placeholder="Bạn muốn tìm gì hôm nay ?">
+
+                    <button id="searchBtn">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                    </button>
+
+                </div>
+
+                <!-- LIVE SEARCH -->
+
+                <div
+
+                    class="search-result"
+
+                    id="searchResult">
+
+                </div>
+
+            </div>
+
+            <!-- ICON -->
+
+            <div class="header-icons">
+
+                <div class="icon-box">
+
+                    <i class="fa-regular fa-heart"></i>
+
+                    <span class="badge">
+
+                        0
+
+                    </span>
+
+                </div>
+
+                <div class="icon-box">
+
+                    <i class="fa-regular fa-bell"></i>
+
+                    <span class="badge">
+
+                        2
+
+                    </span>
+
+                </div>
+
+                <div class="icon-box">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    <span
+
+                        class="badge"
+
+                        id="cartCount">
+
+                        0
+
+                    </span>
+
+                </div>
+
+            </div>
+
+            <!-- MOBILE -->
+
+            <div class="mobile-menu">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- MENU -->
+
+    <nav class="navbar">
+
+        <div class="container">
+
+            <ul class="menu">
+
+                <li>
+
+                    <a href="#">
+
+                        Trang chủ
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="#">
+
+                        Danh mục
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="#">
+
+                        Flash Sale
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="#">
+
+                        Sản phẩm
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="#">
+
+                        Khuyến mãi
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="#">
+
+                        Liên hệ
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+</header>
+<!-- ==========================================
+HERO
+========================================== -->
+
+<section class="hero">
+
+    <div class="container hero-grid">
+
+        <div class="hero-slider">
+
+            <div class="slides">
+
+                <div class="slide active">
+
+                    <img
+                        src="assets/images/banner/banner1.jpg"
+                        alt="Banner 1">
+
+                    <div class="banner-content">
+
+                        <span class="sale-tag">
+
+                            DETYOU SHOP
+
+                        </span>
+
+                        <h1>
+
+                            Mua sắm hiện đại
+                            <br>
+                            Giá cực ưu đãi
+
+                        </h1>
+
+                        <p>
+
+                            Hàng chính hãng · Giao nhanh · Đổi trả 7 ngày
+
+                        </p>
+
+                        <a href="#products" class="btn">
+
+                            Mua ngay
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="slide">
+
+                    <img
+                        src="assets/images/banner/banner2.jpg"
+                        alt="Banner 2">
+
+                    <div class="banner-content">
+
+                        <span class="sale-tag">
+
+                            FLASH SALE
+
+                        </span>
+
+                        <h1>
+
+                            Giảm giá
+                            đến 70%
+
+                        </h1>
+
+                        <p>
+
+                            Hàng ngàn sản phẩm đang chờ bạn
+
+                        </p>
+
+                        <a href="#flash-sale" class="btn">
+
+                            Xem ngay
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="slide">
+
+                    <img
+                        src="assets/images/banner/banner3.jpg"
+                        alt="Banner 3">
+
+                    <div class="banner-content">
+
+                        <span class="sale-tag">
+
+                            NEW COLLECTION
+
+                        </span>
+
+                        <h1>
+
+                            Bộ sưu tập
+                            mới 2026
+
+                        </h1>
+
+                        <p>
+
+                            Thiết kế trẻ trung · Xu hướng mới
+
+                        </p>
+
+                        <a href="#products" class="btn">
+
+                            Khám phá
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <button class="slider-btn prev">
+
+                <i class="fa-solid fa-angle-left"></i>
+
+            </button>
+
+            <button class="slider-btn next">
+
+                <i class="fa-solid fa-angle-right"></i>
+
+            </button>
+
+            <div class="slider-dots">
+
+                <span class="dot active"></span>
+
+                <span class="dot"></span>
+
+                <span class="dot"></span>
+
+            </div>
+
+        </div>
+
+        <div class="hero-side">
+
+            <div class="mini-banner">
+
+                <img src="assets/images/banner/right1.jpg">
+
+                <div>
+
+                    <h3>
+
+                        Voucher 200K
+
+                    </h3>
+
+                    <p>
+
+                        Cho đơn từ 999K
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="mini-banner">
+
+                <img src="assets/images/banner/right2.jpg">
+
+                <div>
+
+                    <h3>
+
+                        Miễn phí vận chuyển
+
+                    </h3>
+
+                    <p>
+
+                        Toàn quốc
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<script src="assets/js/categories.js"></script>
+<!--=========================================
+
+FLASH SALE
+
+==========================================-->
+
+<section class="flash-sale" id="flash-sale">
+
+    <div class="container">
+
+        <div class="flash-header">
+
+            <div class="flash-left">
+
+                <h2>
+
+                    ⚡ FLASH SALE
+
+                </h2>
+
+                <div class="countdown">
+
+                    <div class="time">
+
+                        <span id="hour">00</span>
+
+                    </div>
+
+                    <span>:</span>
+
+                    <div class="time">
+
+                        <span id="minute">00</span>
+
+                    </div>
+
+                    <span>:</span>
+
+                    <div class="time">
+
+                        <span id="second">00</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <a href="#products">
+
+                Xem tất cả
+
+            </a>
+
+        </div>
+
+        <div
+
+            class="flash-products"
+
+            id="flashProducts">
+
+        </div>
+
+    </div>
+
+</section>
+<section class="products" id="products">
+
+    <div class="container">
+
+        <div class="product-header">
+
+            <h2>Sản phẩm nổi bật</h2>
+
+            <a href="pages/products.html">
+
+                Xem tất cả
+
+            </a>
+
+        </div>
+
+        <div
+
+            class="product-grid"
+
+            id="productGrid">
+
+        </div>
+
+        <div
+
+            class="pagination"
+
+            id="pagination">
+
+        </div>
+
+    </div>
+
+</section>
