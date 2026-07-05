@@ -1,487 +1,200 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-<meta charset="UTF-8">
+    body {
+      background: #f5f5f5;
+    }
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    header {
+      background: #ee4d2d;
+      color: white;
+      padding: 12px 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
 
-<title>Thanh toán | DETYOU SHOP</title>
+    .container {
+      max-width: 1100px;
+      margin: 20px auto;
+      display: flex;
+      gap: 20px;
+    }
 
-<link rel="stylesheet" href="../assets/css/style.css">
-<link rel="stylesheet" href="../assets/css/header.css">
-<link rel="stylesheet" href="../assets/css/footer.css">
-<link rel="stylesheet" href="../assets/css/checkout.css">
+    .left, .right {
+      background: white;
+      padding: 15px;
+    }
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    .left {
+      flex: 2;
+    }
 
+    .right {
+      flex: 1;
+      height: fit-content;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+    }
+
+    .box {
+      border: 1px solid #eee;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .item {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+      align-items: center;
+    }
+
+    .item img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+    }
+
+    .item-info {
+      flex: 1;
+    }
+
+    .price {
+      color: #ee4d2d;
+      font-weight: bold;
+    }
+
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      margin: 8px 0;
+    }
+
+    .total {
+      font-size: 18px;
+      font-weight: bold;
+      color: #ee4d2d;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background: #ee4d2d;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    .payment label {
+      display: block;
+      margin: 5px 0;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body>
 
-<header id="header"></header>
-
-<main>
-
-<section class="checkout-page">
+<header>
+  Thanh toán
+</header>
 
 <div class="container">
 
-<div class="page-title">
+  <div class="left">
 
-<h1>
+    <div class="box">
+      <h3>Thông tin giao hàng</h3>
+      <input type="text" placeholder="Họ và tên"/>
+      <input type="text" placeholder="Số điện thoại"/>
+      <input type="text" placeholder="Địa chỉ"/>
+      <select>
+        <option>Chọn tỉnh / thành</option>
+        <option>TP.HCM</option>
+        <option>Hà Nội</option>
+        <option>Cần Thơ</option>
+      </select>
+    </div>
 
-Thanh toán đơn hàng
+    <div class="box payment">
+      <h3>Phương thức thanh toán</h3>
+      <label><input type="radio" name="pay" checked/> Thanh toán khi nhận hàng</label>
+      <label><input type="radio" name="pay"/> Chuyển khoản ngân hàng</label>
+      <label><input type="radio" name="pay"/> Ví điện tử</label>
+    </div>
 
-</h1>
+    <div class="box">
+      <h3>Sản phẩm</h3>
 
-<p>
+      <div class="item">
+        <img src="https://via.placeholder.com/80"/>
+        <div class="item-info">
+          <div>Áo thun nam basic</div>
+          <div class="price">120.000₫ x 1</div>
+        </div>
+      </div>
 
-Vui lòng kiểm tra thông tin trước khi đặt hàng
+      <div class="item">
+        <img src="https://via.placeholder.com/80"/>
+        <div class="item-info">
+          <div>Giày thể thao</div>
+          <div class="price">350.000₫ x 2</div>
+        </div>
+      </div>
 
-</p>
+    </div>
 
-</div>
+  </div>
 
-<div class="checkout-layout">
+  <div class="right">
 
-<!-- ===========================
-THÔNG TIN KHÁCH HÀNG
-=========================== -->
+    <h3>Tóm tắt đơn hàng</h3>
 
-<div class="checkout-left">
+    <div class="summary-line">
+      <span>Tạm tính</span>
+      <span>820.000₫</span>
+    </div>
 
-<div class="card">
+    <div class="summary-line">
+      <span>Phí vận chuyển</span>
+      <span>30.000₫</span>
+    </div>
 
-<h2>
+    <div class="summary-line total">
+      <span>Tổng cộng</span>
+      <span>850.000₫</span>
+    </div>
 
-Thông tin người nhận
+    <button class="btn">Đặt hàng</button>
 
-</h2>
-
-<div class="form-grid">
-
-<div class="form-group">
-
-<label>
-
-Họ và tên *
-
-</label>
-
-<input
-type="text"
-id="fullName"
-placeholder="Nguyễn Văn A">
-
-</div>
-
-<div class="form-group">
-
-<label>
-
-Số điện thoại *
-
-</label>
-
-<input
-type="tel"
-id="phone"
-placeholder="09xxxxxxxx">
-
-</div>
-
-<div class="form-group full">
-
-<label>
-
-Email
-
-</label>
-
-<input
-type="email"
-id="email"
-placeholder="example@gmail.com">
+  </div>
 
 </div>
-
-<div class="form-group full">
-
-<label>
-
-Địa chỉ *
-
-</label>
-
-<input
-type="text"
-id="address"
-placeholder="Số nhà, tên đường">
-
-</div>
-
-<div class="form-group">
-
-<label>
-
-Tỉnh / Thành phố
-
-</label>
-
-<select id="province">
-
-<option value="">Chọn</option>
-
-<option>Hà Nội</option>
-
-<option>TP Hồ Chí Minh</option>
-
-<option>Đà Nẵng</option>
-
-<option>Cần Thơ</option>
-
-<option>Hải Phòng</option>
-
-<option>Bình Dương</option>
-
-</select>
-
-</div>
-
-<div class="form-group">
-
-<label>
-
-Quận / Huyện
-
-</label>
-
-<input
-type="text"
-id="district"
-placeholder="Quận / Huyện">
-
-</div>
-
-<div class="form-group">
-
-<label>
-
-Phường / Xã
-
-</label>
-
-<input
-type="text"
-id="ward"
-placeholder="Phường / Xã">
-
-</div>
-
-<div class="form-group">
-
-<label>
-
-Mã bưu chính
-
-</label>
-
-<input
-type="text"
-id="zipcode"
-placeholder="700000">
-
-</div>
-
-</div>
-
-</div>
-
-<!-- ========================= -->
-
-<div class="card">
-
-<h2>
-
-Phương thức vận chuyển
-
-</h2>
-
-<label class="radio-item">
-
-<input
-type="radio"
-name="shipping"
-value="30000"
-checked>
-
-<span>
-
-🚚 Giao hàng tiêu chuẩn (30.000đ)
-
-</span>
-
-</label>
-
-<label class="radio-item">
-
-<input
-type="radio"
-name="shipping"
-value="50000">
-
-<span>
-
-⚡ Giao hàng nhanh (50.000đ)
-
-</span>
-
-</label>
-
-<label class="radio-item">
-
-<input
-type="radio"
-name="shipping"
-value="0">
-
-<span>
-
-🏪 Nhận tại cửa hàng
-
-</span>
-
-</label>
-
-</div>
-
-<!-- ========================= -->
-
-<div class="card">
-
-<h2>
-
-Phương thức thanh toán
-
-</h2>
-
-<label class="radio-item">
-
-<input
-type="radio"
-name="payment"
-value="cod"
-checked>
-
-<i class="fa-solid fa-money-bill-wave"></i>
-
-Thanh toán khi nhận hàng (COD)
-
-</label>
-
-<label class="radio-item">
-
-<input
-type="radio"
-name="payment"
-value="momo">
-
-<i class="fa-solid fa-wallet"></i>
-
-Ví MoMo
-
-</label>
-
-<label class="radio-item">
-
-<input
-type="radio"
-name="payment"
-value="vnpay">
-
-<i class="fa-solid fa-credit-card"></i>
-
-VNPay
-
-</label>
-
-<label class="radio-item">
-
-<input
-type="radio"
-name="payment"
-value="bank">
-
-<i class="fa-solid fa-building-columns"></i>
-
-Chuyển khoản ngân hàng
-
-</label>
-
-</div>
-
-<!-- ========================= -->
-
-<div class="card">
-
-<h2>
-
-Ghi chú đơn hàng
-
-</h2>
-
-<textarea
-id="note"
-rows="5"
-placeholder="Nhập ghi chú nếu có..."></textarea>
-
-</div>
-
-</div>
-
-<!-- ===========================
-ĐƠN HÀNG
-=========================== -->
-
-<div class="checkout-right">
-
-<div class="order-box">
-
-<h2>
-
-Đơn hàng của bạn
-
-</h2>
-
-<div
-id="checkoutItems">
-
-</div>
-
-<hr>
-
-<div class="row">
-
-<span>
-
-Tạm tính
-
-</span>
-
-<strong id="checkoutSubtotal">
-
-0đ
-
-</strong>
-
-</div>
-
-<div class="row">
-
-<span>
-
-Vận chuyển
-
-</span>
-
-<strong id="checkoutShipping">
-
-30.000đ
-
-</strong>
-
-</div>
-
-<div class="row">
-
-<span>
-
-Giảm giá
-
-</span>
-
-<strong id="checkoutDiscount">
-
-0đ
-
-</strong>
-
-</div>
-
-<hr>
-
-<div class="total">
-
-<span>
-
-Tổng cộng
-
-</span>
-
-<strong id="checkoutTotal">
-
-0đ
-
-</strong>
-
-</div>
-
-<div class="voucher-box">
-
-<input
-type="text"
-id="voucherCode"
-placeholder="Mã giảm giá">
-
-<button
-id="applyVoucher">
-
-Áp dụng
-
-</button>
-
-</div>
-
-<label class="agree">
-
-<input
-type="checkbox"
-id="agreeTerms">
-
-Tôi đồng ý với điều khoản mua hàng.
-
-</label>
-
-<button
-id="placeOrder"
-class="place-order">
-
-<i class="fa-solid fa-lock"></i>
-
-Đặt hàng ngay
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-</main>
-
-<footer id="footer"></footer>
-
-<script src="../assets/js/cart.js"></script>
-<script src="../assets/js/checkout.js"></script>
 
 </body>
-
 </html>

@@ -1,128 +1,155 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Đăng ký</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Đăng ký</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
-<style>
-body{
-font-family:Arial;
-background:#f5f5f5;
-margin:0;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-}
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ee4d2d, #ff7337);
+    }
 
-.box{
-width:380px;
-background:#fff;
-padding:25px;
-border-radius:10px;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
-}
+    .container {
+      width: 380px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
 
-h2{
-text-align:center;
-color:#ee4d2d;
-margin-bottom:20px;
-}
+    .logo {
+      text-align: center;
+      font-size: 26px;
+      font-weight: bold;
+      color: #ee4d2d;
+      margin-bottom: 15px;
+    }
 
-input{
-width:100%;
-padding:12px;
-margin:8px 0;
-border:1px solid #ddd;
-border-radius:6px;
-outline:none;
-}
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
 
-input:focus{
-border-color:#ee4d2d;
-}
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      outline: none;
+    }
 
-button{
-width:100%;
-padding:12px;
-background:#ee4d2d;
-color:#fff;
-border:none;
-border-radius:6px;
-cursor:pointer;
-margin-top:10px;
-}
+    input:focus {
+      border-color: #ee4d2d;
+    }
 
-button:hover{
-background:#d84324;
-}
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #ee4d2d;
+      border: none;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
 
-p{
-text-align:center;
-margin-top:15px;
-font-size:14px;
-}
+    button:hover {
+      background: #d9441f;
+    }
 
-a{
-color:#ee4d2d;
-text-decoration:none;
-}
-</style>
+    .links {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+    }
 
+    .links a {
+      color: #ee4d2d;
+      text-decoration: none;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+
+    .divider {
+      text-align: center;
+      margin: 15px 0;
+      color: #aaa;
+      position: relative;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 40%;
+      height: 1px;
+      background: #ddd;
+    }
+
+    .divider::before { left: 0; }
+    .divider::after { right: 0; }
+
+    .social {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .social button {
+      width: 48%;
+      background: #f5f5f5;
+      color: #333;
+      border: 1px solid #ddd;
+      font-weight: normal;
+    }
+
+    .social button:hover {
+      background: #eee;
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="box">
+  <div class="container">
+    <div class="logo">ShopClone</div>
+    <h2>Đăng ký</h2>
 
-<h2>Đăng ký</h2>
+    <form>
+      <input type="text" placeholder="Họ và tên" required />
+      <input type="text" placeholder="Số điện thoại" required />
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Mật khẩu" required />
+      <input type="password" placeholder="Nhập lại mật khẩu" required />
+      <button type="submit">Đăng ký</button>
+    </form>
 
-<form id="registerForm">
+    <div class="links">
+      <a href="login.html">Đã có tài khoản? Đăng nhập</a>
+    </div>
 
-<input type="text" id="name" placeholder="Họ và tên">
+    <div class="divider">HOẶC</div>
 
-<input type="email" id="email" placeholder="Email">
-
-<input type="password" id="password" placeholder="Mật khẩu">
-
-<input type="password" id="confirm" placeholder="Nhập lại mật khẩu">
-
-<button type="submit">Đăng ký</button>
-
-</form>
-
-<p>
-Đã có tài khoản?
-<a href="login.html">Đăng nhập</a>
-</p>
-
-</div>
-
-<script>
-document.getElementById("registerForm").addEventListener("submit",function(e){
-e.preventDefault();
-
-let name=document.getElementById("name").value.trim();
-let email=document.getElementById("email").value.trim();
-let pass=document.getElementById("password").value;
-let confirm=document.getElementById("confirm").value;
-
-if(!name || !email || !pass || !confirm){
-alert("Vui lòng nhập đầy đủ thông tin");
-return;
-}
-
-if(pass !== confirm){
-alert("Mật khẩu không khớp");
-return;
-}
-
-alert("Đăng ký thành công!");
-window.location.href="login.html";
-
-});
-</script>
+    <div class="social">
+      <button>Facebook</button>
+      <button>Google</button>
+    </div>
+  </div>
 
 </body>
 </html>

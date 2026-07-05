@@ -1,0 +1,70 @@
+/* background styles */
+
+body {
+  background: linear-gradient(135deg, #fff1ed, #f5f5f5);
+  min-height: 100vh;
+}
+
+/* HERO BACKGROUND */
+.hero {
+  background: url("../images/background/hero-bg.jpg") center/cover no-repeat;
+  height: 320px;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(238,77,45,0.85),
+    rgba(255,115,55,0.4)
+  );
+}
+
+/* AUTH BACKGROUND */
+.auth-page {
+  background: url("../images/background/auth-bg.jpg") center/cover no-repeat;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+}
+
+/* SALE BANNER */
+.sale-banner {
+  background: url("../images/background/banner-sale.jpg") center/cover no-repeat;
+  height: 200px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.sale-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.2), rgba(238,77,45,0.6));
+}
+
+/* MODERN CARD BACKDROP */
+.glass-bg {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 12px;
+}
+
+/* SHADOW BACKGROUND LAYER */
+.bg-shadow {
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+}

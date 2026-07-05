@@ -1,449 +1,231 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-<meta charset="UTF-8">
+    body {
+      background: #f5f5f5;
+    }
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    header {
+      background: #ee4d2d;
+      color: white;
+      padding: 12px 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
 
-<title>Giỏ hàng | DETYOU SHOP</title>
+    .container {
+      max-width: 1100px;
+      margin: 20px auto;
+      display: flex;
+      gap: 20px;
+    }
 
-<link rel="stylesheet" href="../assets/css/style.css">
-<link rel="stylesheet" href="../assets/css/header.css">
-<link rel="stylesheet" href="../assets/css/footer.css">
-<link rel="stylesheet" href="../assets/css/cart.css">
+    .cart-list {
+      flex: 2;
+      background: white;
+      padding: 15px;
+    }
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    .summary {
+      flex: 1;
+      background: white;
+      padding: 15px;
+      height: fit-content;
+    }
 
+    .item {
+      display: flex;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+      align-items: center;
+    }
+
+    .item img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+    }
+
+    .item-info {
+      flex: 1;
+    }
+
+    .title {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .price {
+      color: #ee4d2d;
+      font-weight: bold;
+    }
+
+    .qty {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .qty button {
+      width: 28px;
+      height: 28px;
+      border: 1px solid #ccc;
+      background: white;
+      cursor: pointer;
+    }
+
+    .qty input {
+      width: 40px;
+      text-align: center;
+      height: 28px;
+    }
+
+    .remove {
+      color: red;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .summary h3 {
+      margin-bottom: 15px;
+    }
+
+    .line {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+    }
+
+    .total {
+      font-size: 18px;
+      font-weight: bold;
+      color: #ee4d2d;
+    }
+
+    .checkout {
+      width: 100%;
+      padding: 12px;
+      background: #ee4d2d;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 15px;
+      font-size: 16px;
+    }
+  </style>
 </head>
 
 <body>
 
-<header id="header"></header>
-
-<main>
-
-<section class="cart-page">
+<header>
+  Giỏ hàng của bạn
+</header>
 
 <div class="container">
 
-<div class="cart-title">
+  <div class="cart-list">
 
-<h1>
+    <div class="item">
+      <img src="https://via.placeholder.com/100"/>
+      <div class="item-info">
+        <div class="title">Áo thun nam basic</div>
+        <div class="price">120.000₫</div>
+        <div class="qty">
+          <button onclick="changeQty(this, -1)">-</button>
+          <input type="text" value="1"/>
+          <button onclick="changeQty(this, 1)">+</button>
+        </div>
+      </div>
+      <div class="remove" onclick="removeItem(this)">Xóa</div>
+    </div>
 
-Giỏ hàng của bạn
+    <div class="item">
+      <img src="https://via.placeholder.com/100"/>
+      <div class="item-info">
+        <div class="title">Giày thể thao</div>
+        <div class="price">350.000₫</div>
+        <div class="qty">
+          <button onclick="changeQty(this, -1)">-</button>
+          <input type="text" value="2"/>
+          <button onclick="changeQty(this, 1)">+</button>
+        </div>
+      </div>
+      <div class="remove" onclick="removeItem(this)">Xóa</div>
+    </div>
 
-</h1>
+  </div>
 
-</div>
+  <div class="summary">
+    <h3>Tóm tắt đơn hàng</h3>
 
-<div class="cart-layout">
+    <div class="line">
+      <span>Tạm tính</span>
+      <span id="subtotal">0₫</span>
+    </div>
 
-<div class="cart-left">
+    <div class="line">
+      <span>Giảm giá</span>
+      <span>0₫</span>
+    </div>
 
-<table class="cart-table">
+    <div class="line total">
+      <span>Tổng cộng</span>
+      <span id="total">0₫</span>
+    </div>
 
-<thead>
-
-<tr>
-
-<th width="60">
-
-<input
-type="checkbox"
-id="checkAll">
-
-</th>
-
-<th>
-
-Sản phẩm
-
-</th>
-
-<th>
-
-Đơn giá
-
-</th>
-
-<th>
-
-Số lượng
-
-</th>
-
-<th>
-
-Thành tiền
-
-</th>
-
-<th>
-
-</th>
-
-</tr>
-
-</thead>
-
-<tbody id="cartBody">
-
-</tbody>
-
-</table>
+    <button class="checkout">Thanh toán</button>
+  </div>
 
 </div>
 
-<div class="cart-right">
+<script>
+  function format(n){
+    return n.toLocaleString('vi-VN') + "₫";
+  }
 
-<div class="summary">
+  function changeQty(btn, val){
+    let input = btn.parentElement.querySelector("input");
+    let current = parseInt(input.value) || 1;
+    current += val;
+    if(current < 1) current = 1;
+    input.value = current;
+    updateTotal();
+  }
 
-<h2>
+  function removeItem(el){
+    el.parentElement.remove();
+    updateTotal();
+  }
 
-Tóm tắt đơn hàng
+  function updateTotal(){
+    let items = document.querySelectorAll(".item");
+    let total = 0;
 
-</h2>
+    items.forEach(item => {
+      let priceText = item.querySelector(".price").innerText.replace(/[^0-9]/g,'');
+      let price = parseInt(priceText);
+      let qty = parseInt(item.querySelector("input").value);
+      total += price * qty;
+    });
 
-<div class="summary-row">
+    document.getElementById("subtotal").innerText = format(total);
+    document.getElementById("total").innerText = format(total);
+  }
 
-<span>
-
-Tạm tính
-
-</span>
-
-<strong id="subTotal">
-
-0đ
-
-</strong>
-
-</div>
-
-<div class="summary-row">
-
-<span>
-
-Phí vận chuyển
-
-</span>
-
-<strong>
-
-30.000đ
-
-</strong>
-
-</div>
-
-<div class="summary-row">
-
-<span>
-
-Giảm giá
-
-</span>
-
-<strong id="discount">
-
-0đ
-
-</strong>
-
-</div>
-
-<hr>
-
-<div class="summary-total">
-
-<span>
-
-Tổng thanh toán
-
-</span>
-
-<strong id="grandTotal">
-
-0đ
-
-</strong>
-
-</div>
-
-<div class="voucher">
-
-<input
-
-type="text"
-
-id="voucher"
-
-placeholder="Nhập mã giảm giá">
-
-<button id="applyVoucher">
-
-Áp dụng
-
-</button>
-
-</div>
-
-<button
-
-id="checkoutBtn"
-
-class="checkout-btn">
-
-Thanh toán
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-</main>
-
-<footer id="footer"></footer>
-
-<script src="../assets/js/cart.js"></script>
-
-<script src="../assets/js/cart-page.js"></script>
+  updateTotal();
+</script>
 
 </body>
-
-</html>
- 
-<!DOCTYPE html>
-<html lang="vi">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Giỏ hàng | DETYOU SHOP</title>
-
-<link rel="stylesheet" href="../assets/css/style.css">
-<link rel="stylesheet" href="../assets/css/header.css">
-<link rel="stylesheet" href="../assets/css/footer.css">
-<link rel="stylesheet" href="../assets/css/cart.css">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
-</head>
-
-<body>
-
-<header id="header"></header>
-
-<main>
-
-<section class="cart-page">
-
-<div class="container">
-
-<div class="cart-title">
-
-<h1>
-
-Giỏ hàng của bạn
-
-</h1>
-
-</div>
-
-<div class="cart-layout">
-
-<div class="cart-left">
-
-<table class="cart-table">
-
-<thead>
-
-<tr>
-
-<th width="60">
-
-<input
-type="checkbox"
-id="checkAll">
-
-</th>
-
-<th>
-
-Sản phẩm
-
-</th>
-
-<th>
-
-Đơn giá
-
-</th>
-
-<th>
-
-Số lượng
-
-</th>
-
-<th>
-
-Thành tiền
-
-</th>
-
-<th>
-
-</th>
-
-</tr>
-
-</thead>
-
-<tbody id="cartBody">
-
-</tbody>
-
-</table>
-
-</div>
-
-<div class="cart-right">
-
-<div class="summary">
-
-<h2>
-
-Tóm tắt đơn hàng
-
-</h2>
-
-<div class="summary-row">
-
-<span>
-
-Tạm tính
-
-</span>
-
-<strong id="subTotal">
-
-0đ
-
-</strong>
-
-</div>
-
-<div class="summary-row">
-
-<span>
-
-Phí vận chuyển
-
-</span>
-
-<strong>
-
-30.000đ
-
-</strong>
-
-</div>
-
-<div class="summary-row">
-
-<span>
-
-Giảm giá
-
-</span>
-
-<strong id="discount">
-
-0đ
-
-</strong>
-
-</div>
-
-<hr>
-
-<div class="summary-total">
-
-<span>
-
-Tổng thanh toán
-
-</span>
-
-<strong id="grandTotal">
-
-0đ
-
-</strong>
-
-</div>
-
-<div class="voucher">
-
-<input
-
-type="text"
-
-id="voucher"
-
-placeholder="Nhập mã giảm giá">
-
-<button id="applyVoucher">
-
-Áp dụng
-
-</button>
-
-</div>
-
-<button
-
-id="checkoutBtn"
-
-class="checkout-btn">
-
-Thanh toán
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-</main>
-
-<footer id="footer"></footer>
-
-<script src="../assets/js/cart.js"></script>
-
-<script src="../assets/js/cart-page.js"></script>
-
-</body>
-
 </html>
