@@ -1,0 +1,21 @@
+const btn = document.getElementById("search-btn");
+
+btn.addEventListener("click",()=>{
+
+    const keyword = document
+        .getElementById("search-input")
+        .value;
+
+    window.location.href =
+        "search.html?q="+encodeURIComponent(keyword);
+
+});
+document.getElementById("search-btn").onclick = function(){
+
+    const keyword =
+    document.getElementById("search-input").value;
+
+    window.location.href =
+    "search.html?q=" + encodeURIComponent(keyword);
+
+};

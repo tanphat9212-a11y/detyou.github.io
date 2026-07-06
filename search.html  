@@ -638,3 +638,30 @@ window.onload = function () {
     searchProduct();
   }
 }
+<h2 id="title"></h2>
+
+<div id="product-list"></div>
+
+<script src="js/products.js"></script>
+<script src="js/search.js"></script>
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet" href="css/search.css">
+
+</head>
+
+<body>
+
+<h2 id="title"></h2>
+
+<div id="product-list"></div>
+
+<script src="js/products.js"></script>
+<script src="js/search.js"></script>
+
+</body>
+
+</html>

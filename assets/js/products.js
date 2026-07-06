@@ -678,3 +678,63 @@ function loadProducts() {
 }
 
 loadProducts();
+const products = [
+{
+    id:1,
+    name:"Áo thun nam",
+    price:199000,
+    image:"images/ao1.jpg",
+    category:"Thời trang"
+},
+{
+    id:2,
+    name:"Áo sơ mi trắng",
+    price:299000,
+    image:"images/ao2.jpg",
+    category:"Thời trang"
+},
+{
+    id:3,
+    name:"Giày Nike",
+    price:1299000,
+    image:"images/giay1.jpg",
+    category:"Giày dép"
+},
+{
+    id:4,
+    name:"Điện thoại iPhone 16",
+    price:24990000,
+    image:"images/iphone.jpg",
+    category:"Điện tử"
+}
+];
+const products = [
+{
+    id:1,
+    name:"Áo thun nam",
+    price:199000,
+    image:"images/ao1.jpg",
+    category:"Thời trang"
+},
+{
+    id:2,
+    name:"Áo sơ mi",
+    price:299000,
+    image:"images/ao2.jpg",
+    category:"Thời trang"
+},
+{
+    id:3,
+    name:"Giày Nike",
+    price:1299000,
+    image:"images/giay1.jpg",
+    category:"Giày dép"
+},
+{
+    id:4,
+    name:"iPhone 16",
+    price:24990000,
+    image:"images/iphone.jpg",
+    category:"Điện tử"
+}
+];
