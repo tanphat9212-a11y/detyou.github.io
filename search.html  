@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kết quả tìm kiếm - ShopVN</title>
+  <title>Kết quả tìm kiếm mở rộng - ShopVN</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -34,7 +34,7 @@
 <header class="header">
   <a href="index.html" class="logo">ShopVN</a>
   <div class="search-container">
-    <input type="text" id="pageSearchInput" placeholder="Tìm kiếm sản phẩm khác..." />
+    <input type="text" id="pageSearchInput" placeholder="Tìm kiếm sản phẩm khác tại đây..." />
     <button id="pageSearchBtn">🔍</button>
   </div>
   <div style="color:white">🛒 Giỏ hàng</div>
@@ -46,23 +46,22 @@
 </div>
 
 <footer class="footer">
-  © 2026 ShopVN - Danh sách kết quả tìm kiếm mở rộng
+  © 2026 ShopVN - Kết quả lọc tìm kiếm nâng cao
 </footer>
 
 <script>
-  // Kho dữ liệu tổng để tìm kiếm công khai công nghệ và thời trang
+  // Kho dữ liệu tổng để tìm kiếm công khai
   const allProducts = [
-    { id: "ao-1", name: "Áo thun basic Cotton 100% thoáng mát nhiều màu", price: 140000, image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500" },
+    { id: "ao-1", name: "Áo thun basic Cotton 100% thoáng mát nhiều màu sắc thời trang", price: 140000, image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500" },
     { id: "phone-1", name: "Điện thoại thông minh iPhone 15 Pro Max 256GB Chính hãng", price: 25500000, image: "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=500" },
-    { id: "giay-1", name: "Giày Sneaker Thể Thao Nam Nữ Cổ Thấp Đi Học Cực Êm", price: 720000, image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" },
-    { id: "balo-1", name: "Balo Thời Trang Nam Nữ Chống Nước Có Ngăn Laptop", price: 350000, image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500" }
+    { id: "giay-1", name: "Giày Sneaker Thể Thao Nam Nữ Cổ Thấp Đi Học Cực Êm Chân", price: 720000, image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" },
+    { id: "balo-1", name: "Balo Thời Trang Nam Nữ Chống Nước Có Ngăn Đựng Laptop", price: 350000, image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500" }
   ];
 
   const grid = document.getElementById("searchResultGrid");
   const keywordDisplay = document.getElementById("keywordDisplay");
   const pageSearchInput = document.getElementById("pageSearchInput");
 
-  // Đọc từ khóa tìm kiếm trên URL xuống
   function getQuery() {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get('q') || "";
@@ -72,14 +71,12 @@
     const keyword = getQuery();
     keywordDisplay.innerText = `"${keyword}"`;
     pageSearchInput.value = keyword;
-
     grid.innerHTML = "";
     
-    // Tìm kiếm không phân biệt chữ hoa, chữ thường
     const filtered = allProducts.filter(p => p.name.toLowerCase().includes(keyword.toLowerCase()));
 
     if (filtered.length === 0) {
-      grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; color:#999; padding:50px;">Không tìm thấy sản phẩm nào khớp với từ khoá của bạn.</div>`;
+      grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; color:#999; padding:50px;">Không tìm thấy sản phẩm phù hợp.</div>`;
       return;
     }
 
@@ -97,16 +94,12 @@
     });
   }
 
-  // Chạy tìm kiếm ngay khi tải xong trang search.html
   startSearch();
 
-  // Cho phép người dùng tiếp tục tìm kiếm ngay tại trang kết quả này
   function reSearch() {
     const newKeyword = pageSearchInput.value.trim();
     if (newKeyword !== "") {
-      let currentUrl = window.location.href.split('?')[0];
-      let baseUrl = currentUrl.substring(0, currentUrl.lastIndexOf('/') + 1);
-      window.location.href = baseUrl + "search.html?q=" + encodeURIComponent(newKeyword);
+      window.location.href = "search.html?q=" + encodeURIComponent(newKeyword);
     }
   }
 

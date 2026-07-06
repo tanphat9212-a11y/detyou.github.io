@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ShopVN - Trang chủ</title>
+  <title>ShopVN - Trang chủ mua sắm</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -12,21 +12,27 @@
     :root { --primary-color: #ee4d2d; --primary-hover: #d33b1d; --bg-color: #f5f5f5; }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Roboto', sans-serif; }
     body { background-color: var(--bg-color); color: #333; }
+    
     .header { background: linear-gradient(-180deg, #f53d2d, #f63); padding: 15px 10%; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
     .logo { font-size: 30px; font-weight: bold; color: white; text-decoration: none; }
+    
+    /* Thanh tìm kiếm lớn ở trung tâm */
     .search-container { flex: 0 1 600px; display: flex; background: white; border-radius: 4px; padding: 3px; }
     .search-container input { flex: 1; border: none; padding: 10px 15px; font-size: 14px; outline: none; }
     .search-container button { background-color: var(--primary-color); border: none; color: white; padding: 0 25px; cursor: pointer; font-size: 16px; border-radius: 3px; }
-    .cart { color: white; font-size: 16px; cursor: pointer; }
+    
+    .cart { color: white; font-size: 16px; cursor: pointer; display: flex; align-items: center; gap: 5px; }
     .nav { background: white; display: flex; justify-content: center; gap: 30px; padding: 12px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
     .nav a { color: #555; text-decoration: none; font-weight: 500; }
     .nav a:hover { color: var(--primary-color); }
-    .hero { background: #ffb199; height: 250px; display: flex; align-items: center; justify-content: center; color: white; text-align: center; margin-bottom: 30px; }
+    
+    .hero { background: #ffb199; height: 220px; display: flex; align-items: center; justify-content: center; color: white; text-align: center; margin-bottom: 30px; }
     .container { max-width: 1200px; margin: 0 auto 50px auto; padding: 0 15px; }
     .section-title { font-size: 20px; text-transform: uppercase; color: #555; margin-bottom: 20px; border-left: 4px solid var(--primary-color); padding-left: 10px; }
+    
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 15px; }
     .card { background: white; border-radius: 4px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.1); position: relative; display: flex; flex-direction: column; cursor: pointer; transition: transform 0.2s; }
-    .card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); border: 1px solid var(--primary-color); }
     .card img { width: 100%; height: 200px; object-fit: cover; background: #eee; }
     .card-body { padding: 12px; display: flex; flex-direction: column; flex-grow: 1; }
     .card-title { font-size: 14px; height: 40px; overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; margin-bottom: 10px; }
@@ -39,7 +45,7 @@
 <header class="header">
   <a href="index.html" class="logo">ShopVN</a>
   <div class="search-container">
-    <input type="text" id="mainSearchInput" placeholder="Tìm sản phẩm (ví dụ: áo, điện thoại)..." />
+    <input type="text" id="mainSearchInput" placeholder="Tìm kiếm quần áo, giày dép, điện tử..." />
     <button id="mainSearchBtn">🔍</button>
   </div>
   <div class="cart">🛒 Giỏ hàng</div>
@@ -55,7 +61,7 @@
 <section class="hero">
   <div class="hero-content">
     <h1>Mua sắm hiện đại</h1>
-    <p>Giá tốt - Giao nhanh - Uy tín</p>
+    <p>Giá tốt - Giao nhanh - Kết quả tìm kiếm mở rộng</p>
   </div>
 </section>
 
@@ -65,21 +71,19 @@
 </section>
 
 <footer class="footer">
-  © 2026 ShopVN - Hệ thống mua sắm trực tuyến chất lượng cao
+  © 2026 ShopVN - Thiết kế chuẩn TMĐT tương thích GitHub
 </footer>
 
 <script>
-  // Dữ liệu mẫu đồng bộ
   const products = [
-    { id: "ao-1", name: "Áo thun basic Cotton 100% thoáng mát nhiều màu", price: 140000, image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500" },
+    { id: "ao-1", name: "Áo thun basic Cotton 100% thoáng mát nhiều màu sắc thời trang", price: 140000, image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500" },
     { id: "phone-1", name: "Điện thoại thông minh iPhone 15 Pro Max 256GB Chính hãng", price: 25500000, image: "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=500" },
-    { id: "giay-1", name: "Giày Sneaker Thể Thao Nam Nữ Cổ Thấp Đi Học Cực Êm", price: 720000, image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" },
-    { id: "balo-1", name: "Balo Thời Trang Nam Nữ Chống Nước Có Ngăn Laptop", price: 350000, image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500" }
+    { id: "giay-1", name: "Giày Sneaker Thể Thao Nam Nữ Cổ Thấp Đi Học Cực Êm Chân", price: 720000, image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" },
+    { id: "balo-1", name: "Balo Thời Trang Nam Nữ Chống Nước Có Ngăn Đựng Laptop", price: 350000, image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500" }
   ];
 
   const grid = document.getElementById("productGrid");
   
-  // Hiển thị sản phẩm lên trang chủ
   products.forEach(p => {
     const div = document.createElement("div");
     div.className = "card";
@@ -93,16 +97,12 @@
     grid.appendChild(div);
   });
 
-  // HÀM CHUYỂN HƯỚNG TÌM KIẾM AN TOÀN TRÊN GITHUB PAGES
+  // PHƯƠNG PHÁP TÌM KIẾM TƯƠNG ĐỐI: Không can thiệp vào cấu trúc domain GitHub
   function goSearch() {
     const keyword = document.getElementById("mainSearchInput").value.trim();
     if (keyword !== "") {
-      // Cách lấy đường dẫn tương đối an toàn nhất để tránh lỗi 404 trên GitHub Pages
-      let currentUrl = window.location.href.split('?')[0];
-      let baseUrl = currentUrl.substring(0, currentUrl.lastIndexOf('/') + 1);
-      
-      // Chuyển sang file search.html một cách chính xác
-      window.location.href = baseUrl + "search.html?q=" + encodeURIComponent(keyword);
+      // Dùng tên file trực tiếp kèm theo tham số truyền đi, GitHub sẽ tự giữ nguyên tiền tố URL phía trước
+      window.location.href = "search.html?q=" + encodeURIComponent(keyword);
     }
   }
 
