@@ -130,14 +130,28 @@ function searchProduct(){
 }
 
 /* INIT */
-document.addEventListener("DOMContentLoaded", () => {
+ddocument.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.getElementById("main-search-input");
+    const searchBtn = document.getElementById("main-search-btn");
 
-    updateCartCount();
-    renderCart();
+    if (!searchInput || !searchBtn) return;
 
-    const searchBtn = document.querySelector(".search-btn");
-    if(searchBtn){
-        searchBtn.addEventListener("click", searchProduct);
+    function executeSearch() {
+        const keyword = searchInput.value.trim();
+        if (!keyword) return;
+
+        window.location.href =
+            "search.html?q=" + encodeURIComponent(keyword);
+    }
+
+    searchBtn.addEventListener("click", executeSearch);
+
+    searchInput.addEventListener("keydown", function(e) {
+        if (e.key === "Enter") {
+            executeSearch();
+        }
+    });
+});
     }
 
 });
