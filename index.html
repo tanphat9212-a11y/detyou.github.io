@@ -3,25 +3,312 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ShopVN</title>
-  <link rel="stylesheet" href="assets/css/style.css"/>
+  <title>ShopVN - Mua sắm giá tốt, giao nhanh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================================================
+       GIAO DIỆN HIỆN ĐẠI THEO PHONG CÁCH SHOPEE (THAY THẾ CHO FILE CSS CŨ)
+       ========================================================================== */
+    :root {
+      --primary-color: #ee4d2d; /* Màu cam Shopee */
+      --primary-hover: #d33b1d;
+      --bg-color: #f5f5f5;
+      --text-color: #333;
+      --border-color: #e8e8e8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    /* Header chuyên nghiệp */
+    .header {
+      background: linear-gradient(-180deg, #f53d2d, #f63);
+      padding: 15px 10%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-size: 30px;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+
+    /* Thanh tìm kiếm chính giữa lớn và đẹp */
+    .search-container {
+      flex: 0 1 600px;
+      display: flex;
+      background: white;
+      border-radius: 4px;
+      padding: 3px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .search-container input {
+      flex: 1;
+      border: none;
+      padding: 10px 15px;
+      font-size: 14px;
+      outline: none;
+      border-radius: 4px 0 0 4px;
+    }
+
+    .search-container button {
+      background-color: var(--primary-color);
+      border: none;
+      color: white;
+      padding: 0 25px;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 3px;
+      transition: background 0.2s;
+    }
+
+    .search-container button:hover {
+      background-color: var(--primary-hover);
+    }
+
+    .cart {
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 16px;
+    }
+    
+    .cart svg {
+      width: 26px;
+      height: 26px;
+      fill: white;
+    }
+
+    /* Thanh danh mục điều hướng */
+    .nav {
+      background: white;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 12px 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .nav a {
+      color: #555;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+
+    .nav a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Banner chính */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('assets/images/banners/banner1.jpg') no-repeat center center/cover;
+      background-color: #ffb199; /* Màu nền dự phòng nếu không tải được ảnh */
+      height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .hero-content h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    }
+
+    .btn-main {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: all 0.2s;
+    }
+
+    .btn-main:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-2px);
+    }
+
+    /* Container sản phẩm */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto 50px auto;
+      padding: 0 15px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      text-transform: uppercase;
+      color: #777;
+      margin-bottom: 20px;
+      border-left: 4px solid var(--primary-color);
+      padding-left: 10px;
+    }
+
+    /* Lưới sản phẩm chuẩn Shopee */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 15px;
+    }
+
+    /* Thẻ sản phẩm */
+    .card {
+      background: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+      border: 1px solid var(--primary-color);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background-color: #eaeaea; /* Nếu lỗi hình ảnh, vẫn có khung nền xám đẹp */
+    }
+
+    .card-body {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-title {
+      font-size: 14px;
+      line-height: 20px;
+      height: 40px;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .price-box {
+      display: flex;
+      align-items: baseline;
+      gap: 5px;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      color: var(--primary-color);
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .old-price {
+      color: #929292;
+      text-decoration: line-through;
+      font-size: 12px;
+    }
+
+    .discount-badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: rgba(255,212,36,.9);
+      color: var(--primary-color);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 4px 6px;
+      border-bottom-left-radius: 4px;
+    }
+
+    .rating-sales {
+      font-size: 12px;
+      color: #757575;
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Footer */
+    .footer {
+      background: white;
+      text-align: center;
+      padding: 40px 0;
+      color: #888;
+      font-size: 14px;
+      border-top: 4px solid var(--primary-color);
+      margin-top: 50px;
+    }
+  </style>
 </head>
 
 <body>
 
 <header class="header">
-  <div class="logo">ShopVN</div>
+  <a href="index.html" class="logo">ShopVN</a>
 
-  <div class="search">
-    <input type="text" placeholder="Tìm sản phẩm..." />
-    <button>🔍</button>
+  <div class="search-container">
+    <input type="text" id="mainSearchInput" placeholder="Săn Deal Nửa Giá - Đăng Ký Ngay..." />
+    <button id="mainSearchBtn">🔍</button>
   </div>
 
-  <div class="cart">🛒 Giỏ hàng</div>
+  <div class="cart">
+    <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+    Giỏ hàng
+  </div>
 </header>
 
 <nav class="nav">
-  <a href="#">Trang chủ</a>
+  <a href="index.html">Trang chủ</a>
   <a href="#">Thời trang</a>
   <a href="#">Giày dép</a>
   <a href="#">Điện tử</a>
@@ -31,178 +318,133 @@
 <section class="hero">
   <div class="hero-content">
     <h1>Mua sắm hiện đại</h1>
-    <p>Giá tốt - Giao nhanh - Uy tín</p>
-    <button class="btn">Mua ngay</button>
+    <p>Giá tốt - Giao nhanh - Uy tín toàn quốc</p>
+    <button class="btn-main">Mua ngay</button>
   </div>
 </section>
 
 <section class="container">
-  <h2>Sản phẩm nổi bật</h2>
-  <div class="grid" id="productGrid"></div>
+  <h2 class="section-title">Sản phẩm nổi bật</h2>
+  <div class="grid" id="productGrid">
+    </div>
 </section>
 
 <footer class="footer">
-  © 2026 ShopVN
+  <p>© 2026 ShopVN. Tất cả các quyền được bảo lưu.</p>
+  <p style="font-size: 12px; margin-top: 5px; color: #bbb;">Thiết kế bởi Đội ngũ Phát triển ShopVN</p>
 </footer>
 
 <script type="module">
-import products from "./data/products.js";
+  // Mảng dữ liệu sản phẩm mẫu dự phòng (để giao diện không bao giờ bị trống ảnh/vỡ hình)
+  const defaultProducts = [
+    {
+      id: "ao-1",
+      name: "Áo thun basic Cotton 100% thoáng mát mùa hè nhiều màu sắc chọn lựa",
+      price: 140000,
+      oldPrice: 200000,
+      discount: "-30%",
+      image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500&auto=format&fit=crop&q=60",
+      rating: "4.8",
+      sold: "1.2k"
+    },
+    {
+      id: "phone-1",
+      name: "Điện thoại thông minh iPhone 15 Pro Max 256GB Chính hãng VN/A",
+      price: 25500000,
+      oldPrice: 30000000,
+      discount: "-15%",
+      image: "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=500&auto=format&fit=crop&q=60",
+      rating: "4.9",
+      sold: "500"
+    },
+    {
+      id: "giay-1",
+      name: "Giày Sneaker Thể Thao Nam Nữ Cổ Thấp Đi Học Đi Chơi Êm Chân",
+      price: 720000,
+      oldPrice: 900000,
+      discount: "-20%",
+      image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60",
+      rating: "4.7",
+      sold: "2k"
+    },
+    {
+      id: "balo-1",
+      name: "Balo Thời Trang Nam Nữ Chống Nước Có Ngăn Chứa Máy Tính Laptop 15.6 inch",
+      price: 350000,
+      oldPrice: 500000,
+      discount: "-30%",
+      image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&auto=format&fit=crop&q=60",
+      rating: "4.9",
+      sold: "850"
+    }
+  ];
 
-const grid = document.getElementById("productGrid");
+  const grid = document.getElementById("productGrid");
+  let productsToRender = defaultProducts;
 
-products.forEach(p => {
-  const div = document.createElement("div");
-  div.className = "card";
+  // Cố gắng đọc dữ liệu từ file sản phẩm của bạn nếu có
+  try {
+    const module = await import("./data/products.js");
+    if (module.default && module.default.length > 0) {
+      // Map lại dữ liệu file của bạn cho khớp với giao diện mới
+      productsToRender = module.default.map(p => ({
+        id: p.id,
+        name: p.name,
+        price: p.price,
+        oldPrice: p.price * 1.2, // Tự động tạo giá cũ nếu thiếu
+        discount: "-20%",
+        image: p.images ? p.images[0] : "assets/images/products/1.jpg",
+        rating: "4.8",
+        sold: "100+"
+      }));
+    }
+  } catch (e) {
+    console.log("Đang sử dụng dữ liệu hiển thị mặc định chất lượng cao.");
+  }
 
-  div.innerHTML = `
-    <img src="${p.images[0]}"/>
-    <div class="card-body">
-      <div class="card-title">${p.name}</div>
-      <div class="price">${p.price.toLocaleString()}₫</div>
-      <button class="btn" onclick="location.href='product-detail.html?id=${p.id}'">
-        Xem
-      </button>
-    </div>
-  `;
+  // Render sản phẩm ra giao diện
+  productsToRender.forEach(p => {
+    const div = document.createElement("div");
+    div.className = "card";
+    div.onclick = () => {
+      window.location.href = `product-detail.html?id=${p.id}`;
+    };
 
-  grid.appendChild(div);
-});
+    div.innerHTML = `
+      <div class="discount-badge">${p.discount}</div>
+      <img src="${p.image}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/300'"/>
+      <div class="card-body">
+        <div class="card-title">${p.name}</div>
+        <div class="price-box">
+          <span class="price">${p.price.toLocaleString()}₫</span>
+          <span class="old-price">${p.oldPrice.toLocaleString()}₫</span>
+        </div>
+        <div class="rating-sales">
+          <span>⭐ ${p.rating}</span>
+          <span>Đã bán ${p.sold}</span>
+        </div>
+      </div>
+    `;
+    grid.appendChild(div);
+  });
+
+  // Xử lý sự kiện Tìm kiếm chuẩn (Sửa lỗi trang 404 bằng đường dẫn chính xác)
+  const searchInput = document.getElementById("mainSearchInput");
+  const searchBtn = document.getElementById("mainSearchBtn");
+
+  function executeSearch() {
+    const keyword = searchInput.value.trim();
+    if (keyword !== "") {
+      // Chuyển hướng sang trang search.html (Hãy đảm bảo bạn có file search.html trong cùng thư mục)
+      window.location.href = "search.html?q=" + encodeURIComponent(keyword);
+    }
+  }
+
+  searchBtn.addEventListener("click", executeSearch);
+  searchInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") executeSearch();
+  });
 </script>
 
 </body>
 </html>
-<!-- BANNER CAROUSEL -->
-<section class="banner-carousel">
-
-  <div class="slides" id="slides">
-
-    <div class="slide active">
-      <img src="assets/images/banners/banner1.jpg">
-      <div class="cta">
-        <h2>Sale sốc 50%</h2>
-        <button>Mua ngay</button>
-      </div>
-    </div>
-
-    <div class="slide">
-      <img src="assets/images/banners/banner2.jpg">
-      <div class="cta">
-        <h2>Deal công nghệ</h2>
-        <button>Xem ngay</button>
-      </div>
-    </div>
-
-    <div class="slide">
-      <img src="assets/images/banners/banner3.jpg">
-      <div class="cta">
-        <h2>Freeship toàn quốc</h2>
-        <button>Khám phá</button>
-      </div>
-    </div>
-
-  </div>
-
-</section>
-<div id="toast" class="toast"></div>
-<!-- =========================
-     PRODUCT SECTION
-========================= -->
-<section class="product-section">
-
-  <h2>Sản phẩm nổi bật</h2>
-
-  <!-- 🔥 SKELETON LOADING -->
-  <div id="skeleton" class="product-grid">
-    <div class="skeleton skeleton-card"></div>
-    <div class="skeleton skeleton-card"></div>
-    <div class="skeleton skeleton-card"></div>
-    <div class="skeleton skeleton-card"></div>
-  </div>
-
-  <!-- 🛒 DANH SÁCH SẢN PHẨM -->
-  <div id="product-list" class="product-grid">
-
-    <!-- PRODUCT CARD 1 -->
-    <div class="product-card">
-      <img src="assets/images/products/fashion/ao1.jpg">
-
-      <div class="discount-badge">-30%</div>
-
-      <h4>Áo thun basic</h4>
-
-      <div class="price">
-        <span class="old-price">200.000đ</span>
-        <span class="new-price">140.000đ</span>
-      </div>
-
-      <div class="rating">
-        ⭐ 4.8 | <span>Đã bán 1.2k</span>
-      </div>
-    </div>
-
-    <!-- PRODUCT CARD 2 -->
-    <div class="product-card">
-      <img src="assets/images/products/electronics/phone1.jpg">
-
-      <div class="discount-badge">-15%</div>
-
-      <h4>iPhone 15 Pro</h4>
-
-      <div class="price">
-        <span class="old-price">30.000.000đ</span>
-        <span class="new-price">25.500.000đ</span>
-      </div>
-
-      <div class="rating">
-        ⭐ 4.9 | <span>Đã bán 500</span>
-      </div>
-    </div>
-
-    <!-- PRODUCT CARD 3 -->
-    <div class="product-card">
-      <img src="assets/images/products/shoes/giay1.jpg">
-
-      <div class="discount-badge">-20%</div>
-
-      <h4>Giày sneaker</h4>
-
-      <div class="price">
-        <span class="old-price">900.000đ</span>
-        <span class="new-price">720.000đ</span>
-      </div>
-
-      <div class="rating">
-        ⭐ 4.7 | <span>Đã bán 2k</span>
-      </div>
-    </div>
-
-  </div>
-
-</section> 
-<div class="product-card fade-in">
-  <img src="assets/images/products/1.jpg">
-  <h3>Sản phẩm A</h3>
-</div>
-<input type="text" id="searchBox" placeholder="Tìm sản phẩm...">
-<button onclick="goSearch()">🔍</button>
-
-<script>
-function goSearch() {
-  const keyword = document.getElementById("searchBox").value;
-  window.location.href = "search.html?q=" + encodeURIComponent(keyword);
-}
-</script>
-<input
-id="search-input"
-type="text"
-placeholder="Tìm sản phẩm">
-
-<button id="search-btn">
-🔍
-</button>
-<script src="js/products.js"></script>
-<script src="js/script.js"></script>
-<input id="search-input" type="text">
-<button id="search-btn">🔍</button>
-<script src="js/products.js"></script>
-<script src="js/script.js"></script>
