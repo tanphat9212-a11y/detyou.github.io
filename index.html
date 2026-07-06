@@ -335,108 +335,21 @@
 </footer>
 
 <script type="module">
-  // Mảng dữ liệu sản phẩm mẫu dự phòng (để giao diện không bao giờ bị trống ảnh/vỡ hình)
-  const defaultProducts = [
-    {
-      id: "ao-1",
-      name: "Áo thun basic Cotton 100% thoáng mát mùa hè nhiều màu sắc chọn lựa",
-      price: 140000,
-      oldPrice: 200000,
-      discount: "-30%",
-      image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500&auto=format&fit=crop&q=60",
-      rating: "4.8",
-      sold: "1.2k"
-    },
-    {
-      id: "phone-1",
-      name: "Điện thoại thông minh iPhone 15 Pro Max 256GB Chính hãng VN/A",
-      price: 25500000,
-      oldPrice: 30000000,
-      discount: "-15%",
-      image: "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=500&auto=format&fit=crop&q=60",
-      rating: "4.9",
-      sold: "500"
-    },
-    {
-      id: "giay-1",
-      name: "Giày Sneaker Thể Thao Nam Nữ Cổ Thấp Đi Học Đi Chơi Êm Chân",
-      price: 720000,
-      oldPrice: 900000,
-      discount: "-20%",
-      image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60",
-      rating: "4.7",
-      sold: "2k"
-    },
-    {
-      id: "balo-1",
-      name: "Balo Thời Trang Nam Nữ Chống Nước Có Ngăn Chứa Máy Tính Laptop 15.6 inch",
-      price: 350000,
-      oldPrice: 500000,
-      discount: "-30%",
-      image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&auto=format&fit=crop&q=60",
-      rating: "4.9",
-      sold: "850"
-    }
-  ];
+  // --- Giữ nguyên đoạn code render sản phẩm trang chủ của bạn ở đây ---
+  // (Đoạn code import sản phẩm và đổ dữ liệu vào #productGrid)
 
-  const grid = document.getElementById("productGrid");
-  let productsToRender = defaultProducts;
-
-  // Cố gắng đọc dữ liệu từ file sản phẩm của bạn nếu có
-  try {
-    const module = await import("./data/products.js");
-    if (module.default && module.default.length > 0) {
-      // Map lại dữ liệu file của bạn cho khớp với giao diện mới
-      productsToRender = module.default.map(p => ({
-        id: p.id,
-        name: p.name,
-        price: p.price,
-        oldPrice: p.price * 1.2, // Tự động tạo giá cũ nếu thiếu
-        discount: "-20%",
-        image: p.images ? p.images[0] : "assets/images/products/1.jpg",
-        rating: "4.8",
-        sold: "100+"
-      }));
-    }
-  } catch (e) {
-    console.log("Đang sử dụng dữ liệu hiển thị mặc định chất lượng cao.");
-  }
-
-  // Render sản phẩm ra giao diện
-  productsToRender.forEach(p => {
-    const div = document.createElement("div");
-    div.className = "card";
-    div.onclick = () => {
-      window.location.href = `product-detail.html?id=${p.id}`;
-    };
-
-    div.innerHTML = `
-      <div class="discount-badge">${p.discount}</div>
-      <img src="${p.image}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/300'"/>
-      <div class="card-body">
-        <div class="card-title">${p.name}</div>
-        <div class="price-box">
-          <span class="price">${p.price.toLocaleString()}₫</span>
-          <span class="old-price">${p.oldPrice.toLocaleString()}₫</span>
-        </div>
-        <div class="rating-sales">
-          <span>⭐ ${p.rating}</span>
-          <span>Đã bán ${p.sold}</span>
-        </div>
-      </div>
-    `;
-    grid.appendChild(div);
-  });
-
-  // Xử lý sự kiện Tìm kiếm chuẩn (Sửa lỗi trang 404 bằng đường dẫn chính xác)
+  // --- ĐOẠN CODE SỬA LỖI CHUYỂN TRANG URL CHUẨN GITHUB PAGES ---
   const searchInput = document.getElementById("mainSearchInput");
   const searchBtn = document.getElementById("mainSearchBtn");
 
   function executeSearch() {
     const keyword = searchInput.value.trim();
     if (keyword !== "") {
-      // Chuyển hướng sang trang search.html (Hãy đảm bảo bạn có file search.html trong cùng thư mục)
-      window.location.href = "search.html?q=" + encodeURIComponent(keyword);
+      // Tự động lấy đường dẫn thư mục hiện tại để không bị lỗi 404 trên GitHub
+      const currentPath = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
+      
+      // Chuyển hướng URL sang trang search.html kèm từ khóa tìm kiếm
+      window.location.href = window.location.origin + currentPath + "search.html?q=" + encodeURIComponent(keyword);
     }
   }
 
@@ -445,6 +358,3 @@
     if (e.key === "Enter") executeSearch();
   });
 </script>
-
-</body>
-</html>
