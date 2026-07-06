@@ -3,45 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kết quả tìm kiếm mở rộng - ShopVN</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-  
+  <title>Kết quả tìm kiếm - ShopVN</title>
+  <link rel="stylesheet" href="assets/css/style.css"/>
   <style>
-    :root { --primary-color: #ee4d2d; --bg-color: #f5f5f5; }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Roboto', sans-serif; }
-    body { background-color: var(--bg-color); color: #333; }
-    .header { background: linear-gradient(-180deg, #f53d2d, #f63); padding: 15px 10%; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
-    .logo { font-size: 26px; font-weight: bold; color: white; text-decoration: none; }
-    .search-container { flex: 0 1 600px; display: flex; background: white; border-radius: 4px; padding: 3px; }
-    .search-container input { flex: 1; border: none; padding: 10px 15px; outline: none; font-size: 14px; }
-    .search-container button { background: var(--primary-color); border: none; color: white; padding: 0 25px; cursor: pointer; border-radius: 3px; }
-    .container { max-width: 1200px; margin: 30px auto; padding: 0 15px; }
-    .search-title { font-size: 18px; margin-bottom: 20px; color: #555; }
-    .search-keyword { color: var(--primary-color); font-weight: bold; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
-    .card { background: white; border-radius: 4px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.1); position: relative; display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 180px; object-fit: cover; }
-    .card-body { padding: 12px; display: flex; flex-direction: column; flex-grow: 1; }
-    .card-title { font-size: 13px; height: 36px; overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; margin-bottom: 8px; }
-    .price { color: var(--primary-color); font-size: 16px; font-weight: 500; }
-    .footer { text-align: center; padding: 30px 0; color: #888; margin-top: 50px; background: white; border-top: 3px solid var(--primary-color); }
+    /* Bổ sung một số CSS để trang kết quả hiển thị lưới rộng rãi giống Shopee */
+    .search-result-container { max-width: 1200px; margin: 30px auto; padding: 0 15px; }
+    .result-title { font-size: 18px; margin-bottom: 20px; color: #555; }
+    .keyword-highlight { color: #ee4d2d; font-weight: bold; }
+    .no-result { grid-column: 1/-1; text-align: center; color: #999; padding: 50px 0; font-size: 16px; }
   </style>
 </head>
 <body>
 
 <header class="header">
-  <a href="index.html" class="logo">ShopVN</a>
-  <div class="search-container">
-    <input type="text" id="pageSearchInput" placeholder="Tìm kiếm sản phẩm khác tại đây..." />
-    <button id="pageSearchBtn">🔍</button>
+  <div class="logo" onclick="window.location.href='index.html'" style="cursor:pointer;">ShopVN</div>
+
+  <div class="search">
+    <input type="text" id="main-search-input" placeholder="Tìm sản phẩm khác..." />
+    <button id="main-search-btn">🔍</button>
   </div>
-  <div style="color:white">🛒 Giỏ hàng</div>
+
+  <div class="cart">🛒 Giỏ hàng</div>
 </header>
 
-<div class="container">
-  <div class="search-title">Kết quả tìm kiếm cho từ khóa: <span id="keywordDisplay" class="search-keyword">"..."</span></div>
+<nav class="nav">
+  <a href="index.html">Trang chủ</a>
+  <a href="#">Thời trang</a>
+  <a href="#">Giày dép</a>
+  <a href="#">Điện tử</a>
+  <a href="#">Phụ kiện</a>
+</nav>
+
+<div class="search-result-container">
+  <div class="result-title">Kết quả tìm kiếm cho từ khóa: <span id="keywordDisplay" class="keyword-highlight">"..."</span></div>
+  
   <div class="grid" id="searchResultGrid"></div>
 </div>
 
@@ -49,64 +44,71 @@
   © 2026 ShopVN - Kết quả lọc tìm kiếm nâng cao
 </footer>
 
-<script>
-  // Kho dữ liệu tổng để tìm kiếm công khai
-  const allProducts = [
-    { id: "ao-1", name: "Áo thun basic Cotton 100% thoáng mát nhiều màu sắc thời trang", price: 140000, image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500" },
-    { id: "phone-1", name: "Điện thoại thông minh iPhone 15 Pro Max 256GB Chính hãng", price: 25500000, image: "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=500" },
-    { id: "giay-1", name: "Giày Sneaker Thể Thao Nam Nữ Cổ Thấp Đi Học Cực Êm Chân", price: 720000, image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" },
-    { id: "balo-1", name: "Balo Thời Trang Nam Nữ Chống Nước Có Ngăn Đựng Laptop", price: 350000, image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500" }
-  ];
+<script type="module">
+// Lấy dữ liệu sản phẩm từ file gốc của bạn
+import products from "./data/products.js";
 
-  const grid = document.getElementById("searchResultGrid");
-  const keywordDisplay = document.getElementById("keywordDisplay");
-  const pageSearchInput = document.getElementById("pageSearchInput");
+const grid = document.getElementById("searchResultGrid");
+const keywordDisplay = document.getElementById("keywordDisplay");
+const searchInput = document.getElementById("main-search-input");
+const searchBtn = document.getElementById("main-search-btn");
 
-  function getQuery() {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get('q') || "";
+// 1. Đọc từ khóa từ URL (?q=...) xuống và thực hiện lọc
+function getQueryParam() {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get('q') || "";
+}
+
+function processSearch() {
+  const keyword = getQueryParam();
+  keywordDisplay.innerText = `"${keyword}"`;
+  searchInput.value = keyword; // Đồng bộ chữ vừa tìm lên thanh tìm kiếm lớn
+
+  if (!grid) return;
+  grid.innerHTML = "";
+
+  // Tiến hành lọc sản phẩm
+  const matchedProducts = products.filter(p => 
+    p.name.toLowerCase().includes(keyword.toLowerCase())
+  );
+
+  if (matchedProducts.length === 0) {
+    grid.innerHTML = `<div class="no-result">Không tìm thấy sản phẩm nào phù hợp với từ khóa của bạn.</div>`;
+    return;
   }
 
-  function startSearch() {
-    const keyword = getQuery();
-    keywordDisplay.innerText = `"${keyword}"`;
-    pageSearchInput.value = keyword;
-    grid.innerHTML = "";
-    
-    const filtered = allProducts.filter(p => p.name.toLowerCase().includes(keyword.toLowerCase()));
-
-    if (filtered.length === 0) {
-      grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; color:#999; padding:50px;">Không tìm thấy sản phẩm phù hợp.</div>`;
-      return;
-    }
-
-    filtered.forEach(p => {
-      const div = document.createElement("div");
-      div.className = "card";
-      div.innerHTML = `
-        <img src="${p.image}">
-        <div class="card-body">
-          <div class="card-title">${p.name}</div>
-          <div class="price">${p.price.toLocaleString()}₫</div>
-        </div>
-      `;
-      grid.appendChild(div);
-    });
-  }
-
-  startSearch();
-
-  function reSearch() {
-    const newKeyword = pageSearchInput.value.trim();
-    if (newKeyword !== "") {
-      window.location.href = "search.html?q=" + encodeURIComponent(newKeyword);
-    }
-  }
-
-  document.getElementById("pageSearchBtn").addEventListener("click", reSearch);
-  pageSearchInput.addEventListener("keypress", function(e) {
-    if (e.key === "Enter") reSearch();
+  // Đổ sản phẩm tìm kiếm được ra màn hình
+  matchedProducts.forEach(p => {
+    const div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `
+      <img src="${p.images ? p.images[0] : 'https://via.placeholder.com/300'}"/>
+      <div class="card-body">
+        <div class="card-title">${p.name}</div>
+        <div class="price">${p.price.toLocaleString()}₫</div>
+        <button class="btn" onclick="location.href='product-detail.html?id=${p.id}'">Xem</button>
+      </div>
+    `;
+    grid.appendChild(div);
   });
+}
+
+// Chạy hàm lọc ngay khi trang search.html được tải xong
+processSearch();
+
+// 2. Cho phép người dùng gõ tiếp từ khóa mới và tìm kiếm ngay tại trang kết quả này
+function reSearch() {
+  const newKeyword = searchInput.value.trim();
+  if (newKeyword !== "") {
+    window.location.href = "search.html?q=" + encodeURIComponent(newKeyword);
+  }
+}
+
+searchBtn.addEventListener("click", reSearch);
+searchInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") reSearch();
+});
 </script>
+
 </body>
 </html>
