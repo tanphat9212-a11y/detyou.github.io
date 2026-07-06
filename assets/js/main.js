@@ -143,6 +143,19 @@ ddocument.addEventListener("DOMContentLoaded", () => {
         window.location.href =
             "search.html?q=" + encodeURIComponent(keyword);
     }
+document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.getElementById("main-search-input");
+    const searchBtn = document.getElementById("main-search-btn");
+
+    if (!searchInput || !searchBtn) return;
+
+    function executeSearch() {
+        const keyword = searchInput.value.trim();
+        if (!keyword) return;
+
+        window.location.href =
+            "search.html?q=" + encodeURIComponent(keyword);
+    }
 
     searchBtn.addEventListener("click", executeSearch);
 
@@ -152,40 +165,3 @@ ddocument.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
-    }
-
-});
-const input = document.getElementById("searchInput");
-const suggestBox = document.getElementById("suggestBox");
-
-const keywords = ["Áo thun", "iPhone", "Giày sneaker", "Tai nghe"];
-
-input.addEventListener("input", () => {
-  const value = input.value.toLowerCase();
-
-  suggestBox.innerHTML = "";
-
-  keywords
-    .filter(k => k.toLowerCase().includes(value))
-    .forEach(k => {
-      const div = document.createElement("p");
-      div.textContent = k;
-      suggestBox.appendChild(div);
-    });
-
-  suggestBox.style.display = value ? "block" : "none";
-});
-let index = 0;
-const slides = document.getElementById("slides");
-const totalSlides = document.querySelectorAll(".slide").length;
-
-function showSlide(i) {
-  slides.style.transform = `translateX(-${i * 100}%)`;
-}
-
-function nextSlide() {
-  index = (index + 1) % totalSlides;
-  showSlide(index);
-}
-
-setInterval(nextSlide, 3000); // tự chạy 3s
