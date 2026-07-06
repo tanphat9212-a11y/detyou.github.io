@@ -653,3 +653,28 @@ render()
 ↓
 
 hiển thị sản phẩm
+function loadProducts() {
+  document.getElementById("skeleton").style.display = "block";
+  document.getElementById("product-list").style.display = "none";
+
+  setTimeout(() => {
+    document.getElementById("skeleton").style.display = "none";
+    document.getElementById("product-list").style.display = "grid";
+  }, 1500);
+}
+
+loadProducts();
+const skeleton = document.getElementById("skeleton");
+const productList = document.getElementById("product-list");
+
+function loadProducts() {
+  skeleton.style.display = "grid";
+  productList.style.display = "none";
+
+  setTimeout(() => {
+    skeleton.style.display = "none";
+    productList.style.display = "grid";
+  }, 1200);
+}
+
+loadProducts();

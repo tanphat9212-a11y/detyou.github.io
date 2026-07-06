@@ -456,3 +456,38 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
 });
+let products = []; // từ data/products.js
+
+const input = document.querySelector("#searchInput");
+const box = document.querySelector("#suggestBox");
+
+input.addEventListener("input", function () {
+  const keyword = this.value.toLowerCase();
+
+  if (!keyword) {
+    box.innerHTML = "";
+    return;
+  }
+
+  const suggestions = products
+    .filter(p => p.name.toLowerCase().includes(keyword))
+    .slice(0, 5);
+
+  renderSuggestions(suggestions);
+});
+
+function renderSuggestions(items) {
+  box.innerHTML = items
+    .map(
+      item => `
+      <div class="suggest-item" onclick="selectProduct('${item.id}')">
+        ${item.name}
+      </div>
+    `
+    )
+    .join("");
+}
+
+function selectProduct(id) {
+  window.location.href = `product-detail.html?id=${id}`;
+}

@@ -108,4 +108,42 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-});
+}); 
+const USER_KEY = "shopvn_user";
+const TOKEN_KEY = "shopvn_token";
+
+// fake encode token
+function generateToken(user) {
+  return btoa(JSON.stringify({
+    email: user.email,
+    time: Date.now()
+  }));
+}
+
+// register
+function register(user) {
+  localStorage.setItem(USER_KEY, JSON.stringify(user));
+}
+
+// login
+function login(email, password) {
+  const user = JSON.parse(localStorage.getItem(USER_KEY));
+
+  if (user && user.email === email && user.password === password) {
+    const token = generateToken(user);
+    localStorage.setItem(TOKEN_KEY, token);
+    return true;
+  }
+
+  return false;
+}
+
+// check auth
+function isAuth() {
+  return !!localStorage.getItem(TOKEN_KEY);
+}
+
+// logout
+function logout() {
+  localStorage.removeItem(TOKEN_KEY);
+}

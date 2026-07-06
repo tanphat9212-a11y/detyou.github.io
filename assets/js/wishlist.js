@@ -112,3 +112,27 @@ document.addEventListener("DOMContentLoaded", () => {
     updateWishlistCount();
     renderWishlist();
 });
+const WISH_KEY = "shopvn_wishlist";
+
+function getWishlist() {
+  return JSON.parse(localStorage.getItem(WISH_KEY)) || [];
+}
+
+function saveWishlist(list) {
+  localStorage.setItem(WISH_KEY, JSON.stringify(list));
+}
+
+// toggle wishlist
+function toggleWishlist(product) {
+  let list = getWishlist();
+
+  const exists = list.find(item => item.id === product.id);
+
+  if (exists) {
+    list = list.filter(item => item.id !== product.id);
+  } else {
+    list.push(product);
+  }
+
+  saveWishlist(list);
+}

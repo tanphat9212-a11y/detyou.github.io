@@ -63,3 +63,18 @@ input.addEventListener("input", e => {
     card.style.display = text.includes(value) ? "block" : "none";
   });
 });
+.suggest-box {
+  position: absolute;
+  background: white;
+  width: 300px;
+  border: 1px solid #ddd;
+}
+
+.suggest-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggest-item:hover {
+  background: #f5f5f5;
+}
