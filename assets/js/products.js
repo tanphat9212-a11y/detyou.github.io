@@ -461,7 +461,6 @@ async function loadProduct(){
 
 const response=await fetch("../data/products.json");
 
-const products=await response.json();
 
 product=products.find(item=>item.id==id);
 
@@ -678,7 +677,7 @@ function loadProducts() {
 }
 
 loadProducts();
-const products = [
+
 {
     id:1,
     name:"Áo thun nam",
@@ -708,7 +707,7 @@ const products = [
     category:"Điện tử"
 }
 ];
-const products = [
+
 {
     id:1,
     name:"Áo thun nam",

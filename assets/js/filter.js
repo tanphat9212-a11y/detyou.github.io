@@ -1,4 +1,4 @@
-let products = []; // load từ data/products.js
+let keywork = []; // load từ data/products.js
 
 // filter theo giá
 function filterByPrice(min, max) {

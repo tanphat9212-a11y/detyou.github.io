@@ -391,7 +391,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         }
 
-        const products = core.search(keyword);
+  
 
         render.render(products, keyword);
 
@@ -456,7 +456,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
 });
-let products = []; // từ data/products.js
+lproducts.filter = []; // từ data/products.js
 
 const input = document.querySelector("#searchInput");
 const box = document.querySelector("#suggestBox");
