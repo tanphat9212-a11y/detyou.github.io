@@ -428,3 +428,38 @@ Hiệu năng mạnh mẽ, phù hợp cho công việc và giải trí cao cấp.
 </body>
 
 </html>
+<img id="mainImage" src="img1.jpg" />
+
+<div class="thumbs">
+  <img onclick="changeImage('img1.jpg')" src="img1.jpg">
+  <img onclick="changeImage('img2.jpg')" src="img2.jpg">
+</div>
+<script src="assets/js/review.js"></script>
+<button onclick="submitReview()">Gửi đánh giá</button>
+<div id="reviewList"></div>
+<!-- ⭐ REVIEW SECTION -->
+<div class="review-section">
+
+  <h3>Đánh giá sản phẩm</h3>
+
+  <!-- input + select -->
+  <input id="reviewText" placeholder="Nhập đánh giá..." />
+
+  <select id="star">
+    <option value="5">5 ⭐</option>
+    <option value="4">4 ⭐</option>
+    <option value="3">3 ⭐</option>
+    <option value="2">2 ⭐</option>
+    <option value="1">1 ⭐</option>
+  </select>
+
+  <!-- BUTTON GỬI REVIEW -->
+  <button onclick="submitReview()">
+    Gửi đánh giá
+  </button>
+
+  <!-- NƠI HIỂN THỊ REVIEW -->
+  <div id="reviewList"></div>
+
+</div>
+<script src="assets/js/review.js"></script>

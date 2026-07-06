@@ -520,3 +520,6 @@ Mua lại
 </body>
 
 </html>
+<div id="orderList"></div>
+
+<script src="assets/js/orders.js"></script>

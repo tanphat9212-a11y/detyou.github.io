@@ -575,3 +575,7 @@ Xem chi tiết
 </body>
 
 </html>
+<div class="search-box">
+  <input id="searchInput" type="text" placeholder="Tìm sản phẩm..." />
+  <div id="suggestBox" class="suggest-box"></div>
+</div>

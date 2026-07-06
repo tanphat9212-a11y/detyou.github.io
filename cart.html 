@@ -468,3 +468,18 @@ Tiếp tục mua sắm
 
 </body>
 </html>
+<div id="empty-cart" class="empty-cart">
+  <img src="assets/images/icons/empty-cart.png">
+
+  <h2>Giỏ hàng trống</h2>
+  <p>Hãy thêm sản phẩm để bắt đầu mua sắm</p>
+
+  <a href="index.html" class="btn">Tiếp tục mua sắm</a>
+</div>
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/skeleton.css">
+<link rel="stylesheet" href="assets/css/cart.css">
+
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/product.js"></script>
+<script src="assets/js/cart.js"></script>
