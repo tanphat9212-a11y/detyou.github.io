@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Thanh toán | SHOPVN</title>
+
+<link rel="icon" href="assets/images/logo/favicon.ico">
+
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/checkout.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Roboto',sans-serif;
+}
+
+body{
+background:#f5f5f5;
+color:#333;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+img{
+width:100%;
+display:block;
+}
+
+header{
+background:#ee4d2d;
+padding:18px 0;
+box-shadow:0 3px 12px rgba(0,0,0,.15);
+}
+
+.header{
+width:1200px;
+max-width:95%;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+color:#fff;
+}
+
+.logo{
+font-size:34px;
+font-weight:900;
+}
+
+.header nav{
+display:flex;
+gap:30px;
+}
+
+.header nav a{
+font-weight:500;
+}
+
+.container{
+width:1200px;
+max-width:95%;
+margin:35px auto;
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:25px;
+}
+
+.card{
+background:#fff;
+border-radius:12px;
+padding:25px;
+box-shadow:0 5px 18px rgba(0,0,0,.08);
+margin-bottom:25px;
+}
+
+.title{
+font-size:23px;
+font-weight:700;
+margin-bottom:20px;
+padding-bottom:15px;
+border-bottom:1px solid #eee;
+}
+
+.form-group{
+margin-bottom:18px;
+}
+
+label{
+display:block;
+margin-bottom:8px;
+font-weight:600;
+}
+
+input,
+textarea,
+select{
+width:100%;
+padding:14px;
+border:1px solid #ddd;
+border-radius:8px;
+outline:none;
+font-size:15px;
+transition:.3s;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+border-color:#ee4d2d;
+}
+
+.row{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
+}
+
+.product{
+display:flex;
+gap:15px;
+align-items:center;
+padding:15px 0;
+border-bottom:1px solid #eee;
+}
+
+.product img{
+width:90px;
+height:90px;
+border-radius:10px;
+object-fit:cover;
+}
+
+.product h4{
+margin-bottom:8px;
+}
+
+.price{
+color:#ee4d2d;
+font-size:22px;
+font-weight:800;
+}
+
+.summary-row{
+display:flex;
+justify-content:space-between;
+margin:18px 0;
+}
+
+.total{
+font-size:30px;
+font-weight:900;
+color:#ee4d2d;
+}
+
+.pay-btn{
+width:100%;
+padding:18px;
+border:none;
+background:#ee4d2d;
+color:#fff;
+font-size:18px;
+font-weight:700;
+border-radius:8px;
+cursor:pointer;
+transition:.3s;
+}
+
+.pay-btn:hover{
+background:#d84324;
+}
+
+.back-btn{
+width:100%;
+margin-top:15px;
+padding:16px;
+background:#fff;
+border:2px solid #ee4d2d;
+color:#ee4d2d;
+font-size:17px;
+font-weight:700;
+border-radius:8px;
+cursor:pointer;
+transition:.3s;
+}
+
+.back-btn:hover{
+background:#fff1ed;
+}
+
+.badge{
+display:inline-block;
+padding:5px 12px;
+background:#fff2ef;
+color:#ee4d2d;
+border-radius:20px;
+font-size:13px;
+font-weight:700;
+margin-bottom:18px;
+}
+
+footer{
+margin-top:60px;
+background:#fff;
+padding:35px;
+text-align:center;
+color:#777;
+}
+
+@media(max-width:950px){
+
+.container{
+grid-template-columns:1fr;
+}
+
+.row{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="header">
+
+<div class="logo">
+SHOPVN
+</div>
+
+<nav>
+
+<a href="index.html">Trang chủ</a>
+
+<a href="cart.html">Giỏ hàng</a>
+
+<a href="profile.html">Tài khoản</a>
+
+</nav>
+
+</div>
+
+</header>
+
+<div class="container">
+
+<div>
+
+<div class="card">
+
+<div class="title">
+Địa chỉ nhận hàng
+</div>
+
+<div class="row">
+
+<div class="form-group">
+
+<label>Họ và tên</label>
+
+<input type="text" placeholder="Nguyễn Văn A">
+
+</div>
+
+<div class="form-group">
+
+<label>Số điện thoại</label>
+
+<input type="text" placeholder="09xxxxxxxx">
+
+</div>
+
+</div>
+
+<div class="form-group">
+
+<label>Email</label>
+
+<input type="email" placeholder="example@gmail.com">
+
+</div>
+
+<div class="form-group">
+
+<label>Địa chỉ</label>
+
+<textarea rows="4" placeholder="Số nhà, đường, phường/xã, quận/huyện, tỉnh/thành phố"></textarea>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="title">
+Phương thức thanh toán
+</div>
+
+<div class="badge">
+An toàn • Bảo mật
+</div>
+
+<div class="form-group">
+
+<select>
+
+<option>Thanh toán khi nhận hàng (COD)</option>
+
+<option>Ví điện tử</option>
+
+<option>Chuyển khoản ngân hàng</option>
+
+<option>Thẻ Visa / MasterCard</option>
+
+</select>
+
+</div>
+
+</div>
+
+</div>
+
+<div>
+
+<div class="card">
+
+<div class="title">
+Đơn hàng của bạn
+</div>
+
+<div class="product">
+
+<img src="assets/images/products/electronics/phone1.jpg">
+
+<div>
+
+<h4>iPhone 16 Pro Max 256GB</h4>
+
+<p>Số lượng: 1</p>
+
+<div class="price">
+32.990.000₫
+</div>
+
+</div>
+
+</div>
+
+<div class="product">
+
+<img src="assets/images/products/watch/watch1.jpg">
+
+<div>
+
+<h4>Đồng hồ thông minh Ultra</h4>
+
+<p>Số lượng: 2</p>
+
+<div class="price">
+4.980.000₫
+</div>
+
+</div>
+
+</div>
+
+<div class="summary-row">
+
+<span>Tạm tính</span>
+
+<strong>37.970.000₫</strong>
+
+</div>
+
+<div class="summary-row">
+
+<span>Giảm giá</span>
+
+<strong style="color:green;">-1.000.000₫</strong>
+
+</div>
+
+<div class="summary-row">
+
+<span>Phí vận chuyển</span>
+
+<strong>30.000₫</strong>
+
+</div>
+
+<hr>
+
+<div class="summary-row total">
+
+<span>Tổng cộng</span>
+
+<span>37.000.000₫</span>
+
+</div>
+
+<button class="pay-btn">
+
+Xác nhận đặt hàng
+
+</button>
+
+<button class="back-btn" onclick="location.href='cart.html'">
+
+Quay lại giỏ hàng
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+
+© 2026 SHOPVN - Mua sắm nhanh chóng, an toàn và tiện lợi.
+
+</footer>
+
+<script src="assets/js/checkout.js"></script>
+
+</body>
+</html>

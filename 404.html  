@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Không tìm thấy trang | SHOPVN</title>
+
+    <link rel="icon" href="assets/images/logo/favicon.ico">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Roboto',sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#ee4d2d,#ff7337,#ffb357);
+            overflow:hidden;
+            position:relative;
+        }
+
+        body::before{
+            content:"";
+            position:absolute;
+            width:700px;
+            height:700px;
+            background:rgba(255,255,255,.08);
+            border-radius:50%;
+            top:-200px;
+            right:-180px;
+        }
+
+        body::after{
+            content:"";
+            position:absolute;
+            width:600px;
+            height:600px;
+            background:rgba(255,255,255,.05);
+            border-radius:50%;
+            bottom:-220px;
+            left:-180px;
+        }
+
+        .card{
+            position:relative;
+            z-index:2;
+            width:90%;
+            max-width:760px;
+            background:#fff;
+            border-radius:28px;
+            padding:70px 50px;
+            text-align:center;
+            box-shadow:0 30px 80px rgba(0,0,0,.25);
+        }
+
+        .logo{
+            font-size:34px;
+            font-weight:900;
+            color:#ee4d2d;
+            letter-spacing:2px;
+            margin-bottom:30px;
+        }
+
+        h1{
+            font-size:150px;
+            color:#ee4d2d;
+            line-height:1;
+            font-weight:900;
+        }
+
+        h2{
+            margin-top:15px;
+            font-size:34px;
+            color:#222;
+        }
+
+        p{
+            margin-top:18px;
+            color:#666;
+            line-height:1.8;
+            font-size:17px;
+        }
+
+        .btn-group{
+            margin-top:45px;
+            display:flex;
+            justify-content:center;
+            gap:18px;
+            flex-wrap:wrap;
+        }
+
+        .btn{
+            text-decoration:none;
+            padding:15px 34px;
+            border-radius:50px;
+            font-size:16px;
+            font-weight:700;
+            transition:.3s;
+        }
+
+        .home{
+            background:#ee4d2d;
+            color:#fff;
+        }
+
+        .home:hover{
+            background:#d93d1f;
+            transform:translateY(-4px);
+        }
+
+        .shop{
+            background:#fff3ef;
+            color:#ee4d2d;
+        }
+
+        .shop:hover{
+            background:#ffe4da;
+            transform:translateY(-4px);
+        }
+
+        .icon{
+            font-size:65px;
+            margin-bottom:10px;
+        }
+
+        @media(max-width:768px){
+
+            .card{
+                padding:50px 25px;
+            }
+
+            h1{
+                font-size:100px;
+            }
+
+            h2{
+                font-size:26px;
+            }
+
+            p{
+                font-size:15px;
+            }
+
+            .btn{
+                width:100%;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+
+        <div class="logo">
+            SHOPVN
+        </div>
+
+        <div class="icon">
+            🛒
+        </div>
+
+        <h1>404</h1>
+
+        <h2>Không tìm thấy trang</h2>
+
+        <p>
+            Trang bạn đang tìm kiếm không tồn tại hoặc đã bị di chuyển.
+            Hãy quay về trang chủ để tiếp tục mua sắm hàng nghìn sản phẩm hấp dẫn.
+        </p>
+
+        <div class="btn-group">
+            <a href="index.html" class="btn home">
+                🏠 Trang chủ
+            </a>
+
+            <a href="category.html" class="btn shop">
+                🛍 Tiếp tục mua sắm
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>

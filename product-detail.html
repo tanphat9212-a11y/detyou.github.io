@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Chi tiết sản phẩm | SHOPVN</title>
+
+<link rel="icon" href="assets/images/logo/favicon.ico">
+
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/product.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Roboto',sans-serif;
+}
+
+body{
+background:#f5f5f5;
+color:#333;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+img{
+width:100%;
+display:block;
+}
+
+header{
+background:#ee4d2d;
+padding:16px 0;
+box-shadow:0 3px 12px rgba(0,0,0,.15);
+position:sticky;
+top:0;
+z-index:999;
+}
+
+.header{
+width:1200px;
+max-width:95%;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+color:#fff;
+}
+
+.logo{
+font-size:34px;
+font-weight:900;
+}
+
+.nav{
+display:flex;
+gap:25px;
+font-weight:500;
+}
+
+.container{
+width:1200px;
+max-width:95%;
+margin:30px auto;
+display:grid;
+grid-template-columns:1.2fr 1fr;
+gap:25px;
+}
+
+.gallery{
+background:#fff;
+padding:20px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.main-img{
+height:420px;
+border-radius:12px;
+overflow:hidden;
+margin-bottom:15px;
+}
+
+.main-img img{
+height:100%;
+object-fit:cover;
+transition:.3s;
+}
+
+.thumb{
+display:flex;
+gap:10px;
+}
+
+.thumb img{
+width:80px;
+height:80px;
+object-fit:cover;
+border-radius:8px;
+cursor:pointer;
+border:2px solid transparent;
+transition:.3s;
+}
+
+.thumb img:hover{
+border-color:#ee4d2d;
+}
+
+.info{
+background:#fff;
+padding:25px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.title{
+font-size:26px;
+font-weight:800;
+margin-bottom:10px;
+}
+
+.rating{
+color:#ffb400;
+margin-bottom:10px;
+}
+
+.price{
+font-size:34px;
+font-weight:900;
+color:#ee4d2d;
+margin:15px 0;
+}
+
+.old{
+font-size:18px;
+color:#999;
+text-decoration:line-through;
+margin-left:10px;
+}
+
+.desc{
+color:#666;
+line-height:1.7;
+margin-bottom:20px;
+}
+
+.option{
+margin-bottom:20px;
+}
+
+.option label{
+font-weight:700;
+display:block;
+margin-bottom:8px;
+}
+
+.option select,
+.option input{
+width:100%;
+padding:12px;
+border:1px solid #ddd;
+border-radius:8px;
+outline:none;
+}
+
+.qty{
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:25px;
+}
+
+.qty button{
+width:38px;
+height:38px;
+border:none;
+background:#f2f2f2;
+font-size:20px;
+cursor:pointer;
+border-radius:6px;
+}
+
+.qty input{
+width:60px;
+text-align:center;
+border:1px solid #ddd;
+height:38px;
+border-radius:6px;
+}
+
+.buttons{
+display:flex;
+gap:12px;
+}
+
+.add{
+flex:1;
+padding:15px;
+border:none;
+background:#ee4d2d;
+color:#fff;
+font-weight:700;
+border-radius:8px;
+cursor:pointer;
+transition:.3s;
+}
+
+.add:hover{
+background:#d84324;
+}
+
+.buy{
+flex:1;
+padding:15px;
+border:2px solid #ee4d2d;
+background:#fff;
+color:#ee4d2d;
+font-weight:700;
+border-radius:8px;
+cursor:pointer;
+}
+
+.buy:hover{
+background:#fff1ed;
+}
+
+.section{
+width:1200px;
+max-width:95%;
+margin:30px auto;
+background:#fff;
+padding:25px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.section h2{
+margin-bottom:15px;
+}
+
+.review{
+border-top:1px solid #eee;
+padding:15px 0;
+}
+
+.review strong{
+display:block;
+margin-bottom:5px;
+}
+
+footer{
+margin-top:40px;
+background:#fff;
+padding:35px;
+text-align:center;
+color:#777;
+}
+
+@media(max-width:950px){
+
+.container{
+grid-template-columns:1fr;
+}
+
+.main-img{
+height:300px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="header">
+
+<div class="logo">SHOPVN</div>
+
+<div class="nav">
+
+<a href="index.html">Trang chủ</a>
+
+<a href="category.html">Danh mục</a>
+
+<a href="cart.html">Giỏ hàng</a>
+
+<a href="profile.html">Tài khoản</a>
+
+</div>
+
+</div>
+
+</header>
+
+<div class="container">
+
+<div class="gallery">
+
+<div class="main-img">
+
+<img src="assets/images/products/electronics/phone1.jpg">
+
+</div>
+
+<div class="thumb">
+
+<img src="assets/images/products/electronics/phone1.jpg">
+<img src="assets/images/products/electronics/phone2.jpg">
+<img src="assets/images/products/electronics/phone3.jpg">
+<img src="assets/images/products/electronics/phone4.jpg">
+
+</div>
+
+</div>
+
+<div class="info">
+
+<div class="title">
+iPhone 16 Pro Max 256GB Chính Hãng
+</div>
+
+<div class="rating">
+★★★★★ (12.5k đánh giá)
+</div>
+
+<div class="price">
+32.990.000₫
+<span class="old">35.990.000₫</span>
+</div>
+
+<div class="desc">
+iPhone 16 Pro Max mang đến hiệu năng vượt trội, camera chuyên nghiệp và thiết kế sang trọng bậc nhất.
+</div>
+
+<div class="option">
+
+<label>Màu sắc</label>
+
+<select>
+<option>Titan Tự Nhiên</option>
+<option>Đen</option>
+<option>Trắng</option>
+</select>
+
+</div>
+
+<div class="qty">
+
+<button>-</button>
+
+<input value="1">
+
+<button>+</button>
+
+</div>
+
+<div class="buttons">
+
+<button class="add">Thêm vào giỏ hàng</button>
+
+<button class="buy">Mua ngay</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>Mô tả sản phẩm</h2>
+
+<p>
+Sản phẩm chính hãng, bảo hành 12 tháng, hỗ trợ đổi trả trong 7 ngày nếu lỗi từ nhà sản xuất.
+Hiệu năng mạnh mẽ, phù hợp cho công việc và giải trí cao cấp.
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>Đánh giá khách hàng</h2>
+
+<div class="review">
+
+<strong>Nguyễn Văn A</strong>
+
+★★★★★
+
+<p>Sản phẩm rất tốt, giao hàng nhanh, đóng gói cẩn thận.</p>
+
+</div>
+
+<div class="review">
+
+<strong>Trần Thị B</strong>
+
+★★★★☆
+
+<p>Máy đẹp, dùng mượt, giá hơi cao nhưng xứng đáng.</p>
+
+</div>
+
+</div>
+
+<footer>
+
+© 2026 SHOPVN - Mua sắm hiện đại, tiện lợi.
+
+</footer>
+
+</body>
+
+</html>

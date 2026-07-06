@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Đơn hàng của tôi | SHOPVN</title>
+
+<link rel="icon" href="assets/images/logo/favicon.ico">
+
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Roboto',sans-serif;
+}
+
+body{
+background:#f5f5f5;
+color:#333;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+img{
+display:block;
+width:100%;
+}
+
+header{
+background:#ee4d2d;
+padding:18px 0;
+box-shadow:0 3px 12px rgba(0,0,0,.15);
+position:sticky;
+top:0;
+z-index:999;
+}
+
+.header{
+width:1200px;
+max-width:95%;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+color:#fff;
+}
+
+.logo{
+font-size:34px;
+font-weight:900;
+}
+
+.menu{
+display:flex;
+gap:30px;
+}
+
+.menu a{
+font-weight:500;
+}
+
+.container{
+width:1200px;
+max-width:95%;
+margin:35px auto;
+display:grid;
+grid-template-columns:260px 1fr;
+gap:25px;
+}
+
+.sidebar{
+background:#fff;
+border-radius:12px;
+padding:25px;
+height:max-content;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.avatar{
+display:flex;
+align-items:center;
+gap:15px;
+margin-bottom:25px;
+padding-bottom:20px;
+border-bottom:1px solid #eee;
+}
+
+.avatar img{
+width:70px;
+height:70px;
+border-radius:50%;
+}
+
+.avatar h3{
+font-size:20px;
+}
+
+.sidebar ul{
+list-style:none;
+}
+
+.sidebar li{
+margin-bottom:12px;
+}
+
+.sidebar a{
+display:block;
+padding:13px 15px;
+border-radius:8px;
+transition:.3s;
+font-weight:500;
+}
+
+.sidebar a:hover,
+.sidebar a.active{
+background:#fff1ed;
+color:#ee4d2d;
+}
+
+.content{
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.tabs{
+background:#fff;
+padding:18px;
+border-radius:12px;
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.tabs button{
+padding:12px 22px;
+border:none;
+background:#f3f3f3;
+border-radius:30px;
+cursor:pointer;
+font-weight:600;
+transition:.3s;
+}
+
+.tabs button.active,
+.tabs button:hover{
+background:#ee4d2d;
+color:#fff;
+}
+
+.order{
+background:#fff;
+border-radius:12px;
+padding:25px;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.order-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding-bottom:18px;
+border-bottom:1px solid #eee;
+margin-bottom:20px;
+}
+
+.status{
+color:#00b14f;
+font-weight:700;
+}
+
+.product{
+display:flex;
+gap:18px;
+padding:18px 0;
+border-bottom:1px solid #f1f1f1;
+}
+
+.product:last-child{
+border-bottom:none;
+}
+
+.product img{
+width:110px;
+height:110px;
+border-radius:10px;
+object-fit:cover;
+}
+
+.info{
+flex:1;
+}
+
+.info h3{
+margin-bottom:10px;
+font-size:20px;
+}
+
+.info p{
+color:#777;
+margin-bottom:8px;
+}
+
+.price{
+font-size:23px;
+font-weight:800;
+color:#ee4d2d;
+}
+
+.bottom{
+margin-top:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.total{
+font-size:28px;
+font-weight:900;
+color:#ee4d2d;
+}
+
+.buttons{
+display:flex;
+gap:12px;
+}
+
+.btn{
+padding:13px 24px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-weight:700;
+transition:.3s;
+}
+
+.buy{
+background:#ee4d2d;
+color:#fff;
+}
+
+.buy:hover{
+background:#d84324;
+}
+
+.detail{
+background:#fff;
+border:2px solid #ee4d2d;
+color:#ee4d2d;
+}
+
+.detail:hover{
+background:#fff1ed;
+}
+
+footer{
+margin-top:60px;
+background:#fff;
+padding:35px;
+text-align:center;
+color:#777;
+}
+
+@media(max-width:960px){
+
+.container{
+grid-template-columns:1fr;
+}
+
+.sidebar{
+display:none;
+}
+
+.product{
+flex-direction:column;
+}
+
+.product img{
+width:100%;
+height:220px;
+}
+
+.bottom{
+flex-direction:column;
+align-items:flex-start;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="header">
+
+<div class="logo">
+SHOPVN
+</div>
+
+<div class="menu">
+
+<a href="index.html">Trang chủ</a>
+
+<a href="cart.html">Giỏ hàng</a>
+
+<a href="profile.html">Tài khoản</a>
+
+</div>
+
+</div>
+
+</header>
+
+<div class="container">
+
+<aside class="sidebar">
+
+<div class="avatar">
+
+<img src="assets/images/avatar/default.png">
+
+<div>
+
+<h3>Nguyễn Văn A</h3>
+
+<p>Khách hàng VIP</p>
+
+</div>
+
+</div>
+
+<ul>
+
+<li><a href="profile.html">👤 Hồ sơ</a></li>
+
+<li><a class="active" href="orders.html">📦 Đơn hàng</a></li>
+
+<li><a href="wishlist.html">❤️ Yêu thích</a></li>
+
+<li><a href="cart.html">🛒 Giỏ hàng</a></li>
+
+<li><a href="login.html">🚪 Đăng xuất</a></li>
+
+</ul>
+
+</aside>
+
+<main class="content">
+
+<div class="tabs">
+
+<button class="active">Tất cả</button>
+
+<button>Chờ xác nhận</button>
+
+<button>Đang giao</button>
+
+<button>Hoàn thành</button>
+
+<button>Đã hủy</button>
+
+</div>
+
+<div class="order">
+
+<div class="order-top">
+
+<div>
+
+<strong>Mã đơn:</strong>
+
+#SHOP100256
+
+</div>
+
+<div class="status">
+
+Đang giao
+
+</div>
+
+</div>
+
+<div class="product">
+
+<img src="assets/images/products/electronics/phone1.jpg">
+
+<div class="info">
+
+<h3>iPhone 16 Pro Max 256GB</h3>
+
+<p>Màu: Titan Tự Nhiên</p>
+
+<p>Số lượng: 1</p>
+
+<div class="price">
+32.990.000₫
+</div>
+
+</div>
+
+</div>
+
+<div class="bottom">
+
+<div class="total">
+Tổng thanh toán: 32.990.000₫
+</div>
+
+<div class="buttons">
+
+<button class="btn detail">
+Chi tiết
+</button>
+
+<button class="btn buy">
+Mua lại
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="order">
+
+<div class="order-top">
+
+<div>
+
+<strong>Mã đơn:</strong>
+
+#SHOP100198
+
+</div>
+
+<div class="status">
+
+Hoàn thành
+
+</div>
+
+</div>
+
+<div class="product">
+
+<img src="assets/images/products/watch/watch1.jpg">
+
+<div class="info">
+
+<h3>Đồng hồ thông minh Ultra</h3>
+
+<p>Màu: Đen</p>
+
+<p>Số lượng: 2</p>
+
+<div class="price">
+4.980.000₫
+</div>
+
+</div>
+
+</div>
+
+<div class="bottom">
+
+<div class="total">
+Tổng thanh toán: 4.980.000₫
+</div>
+
+<div class="buttons">
+
+<button class="btn detail">
+Đánh giá
+</button>
+
+<button class="btn buy">
+Mua lại
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+</div>
+
+<footer>
+
+© 2026 SHOPVN - Mua sắm trực tuyến hiện đại.
+
+</footer>
+
+<script src="assets/js/app.js"></script>
+
+</body>
+
+</html>
