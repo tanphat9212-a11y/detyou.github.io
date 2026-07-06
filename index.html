@@ -183,3 +183,12 @@ products.forEach(p => {
   <img src="assets/images/products/1.jpg">
   <h3>Sản phẩm A</h3>
 </div>
+<input type="text" id="searchBox" placeholder="Tìm sản phẩm...">
+<button onclick="goSearch()">🔍</button>
+
+<script>
+function goSearch() {
+  const keyword = document.getElementById("searchBox").value;
+  window.location.href = "search.html?q=" + encodeURIComponent(keyword);
+}
+</script>

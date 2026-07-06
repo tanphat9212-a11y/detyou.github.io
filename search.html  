@@ -579,3 +579,62 @@ Xem chi tiết
   <input id="searchInput" type="text" placeholder="Tìm sản phẩm..." />
   <div id="suggestBox" class="suggest-box"></div>
 </div>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tìm kiếm sản phẩm</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<h2>Tìm kiếm sản phẩm</h2>
+
+<input type="text" id="searchInput" placeholder="Nhập tên sản phẩm...">
+<button onclick="searchProduct()">Tìm kiếm</button>
+
+<div id="result"></div>
+
+<script src="data/products.js"></script>
+<script>
+function searchProduct() {
+  const keyword = document.getElementById("searchInput").value.toLowerCase();
+
+  const filtered = PRODUCTS.filter(p =>
+    p.name.toLowerCase().includes(keyword)
+  );
+
+  let html = "";
+
+  if (filtered.length === 0) {
+    html = "<p>Không tìm thấy sản phẩm</p>";
+  } else {
+    filtered.forEach(p => {
+      html += `
+        <div class="product-card" onclick="goDetail(${p.id})">
+          <img src="${p.image}" width="120">
+          <h3>${p.name}</h3>
+          <p>${p.price.toLocaleString()}đ</p>
+        </div>
+      `;
+    });
+  }
+
+  document.getElementById("result").innerHTML = html;
+}
+
+function goDetail(id) {
+  window.location.href = "product-detail.html?id=" + id;
+}
+</script>
+
+</body>
+</html>
+window.onload = function () {
+  const params = new URLSearchParams(window.location.search);
+  const q = params.get("q");
+
+  if (q) {
+    document.getElementById("searchInput").value = q;
+    searchProduct();
+  }
+}

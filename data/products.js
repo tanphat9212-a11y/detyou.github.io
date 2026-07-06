@@ -303,3 +303,53 @@ window.buyNow = ()=>{
 
 </body>
 </html>
+const PRODUCTS = [
+  {
+    id: 1,
+    name: "Áo thun basic unisex",
+    price: 99000,
+    oldPrice: 150000,
+    image: "assets/images/products/fashion/ao1.jpg",
+    category: "fashion",
+    rating: 4.5,
+    sold: 1200,
+    description: "Áo thun cotton 100% thoáng mát, form rộng unisex.",
+    shop: "Shop Fashion VN"
+  },
+  {
+    id: 2,
+    name: "Giày sneaker trắng",
+    price: 299000,
+    oldPrice: 450000,
+    image: "assets/images/products/fashion/giay1.jpg",
+    category: "shoes",
+    rating: 4.7,
+    sold: 3200,
+    description: "Sneaker trắng thời trang, dễ phối đồ.",
+    shop: "Sneaker Store"
+  },
+  {
+    id: 3,
+    name: "Tai nghe Bluetooth",
+    price: 199000,
+    oldPrice: 350000,
+    image: "assets/images/products/electronics/tainghe1.jpg",
+    category: "electronics",
+    rating: 4.3,
+    sold: 5400,
+    description: "Tai nghe không dây, pin lâu, âm bass mạnh.",
+    shop: "Tech Store"
+  },
+  {
+    id: 4,
+    name: "Điện thoại Smartphone X",
+    price: 3990000,
+    oldPrice: 5200000,
+    image: "assets/images/products/electronics/phone1.jpg",
+    category: "electronics",
+    rating: 4.8,
+    sold: 900,
+    description: "Màn hình lớn, camera sắc nét, pin trâu.",
+    shop: "Mobile World"
+  }
+];

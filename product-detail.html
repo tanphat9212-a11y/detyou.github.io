@@ -463,3 +463,50 @@ Hiệu năng mạnh mẽ, phù hợp cho công việc và giải trí cao cấp.
 
 </div>
 <script src="assets/js/review.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chi tiết sản phẩm</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div id="product"></div>
+
+<script src="data/products.js"></script>
+<script>
+const params = new URLSearchParams(window.location.search);
+const id = parseInt(params.get("id"));
+
+const product = PRODUCTS.find(p => p.id === id);
+
+if (!product) {
+  document.getElementById("product").innerHTML = "<h2>Không tìm thấy sản phẩm</h2>";
+} else {
+  document.getElementById("product").innerHTML = `
+    <div style="display:flex; gap:20px;">
+      <img src="${product.image}" width="300">
+
+      <div>
+        <h2>${product.name}</h2>
+        <h3 style="color:red">${product.price.toLocaleString()}đ</h3>
+        <p><del>${product.oldPrice.toLocaleString()}đ</del></p>
+
+        <p>⭐ ${product.rating} | Đã bán ${product.sold}</p>
+        <p>🏪 ${product.shop}</p>
+
+        <p>${product.description}</p>
+
+        <button onclick="addToCart(${product.id})">Thêm vào giỏ</button>
+      </div>
+    </div>
+  `;
+}
+
+function addToCart(id) {
+  alert("Đã thêm vào giỏ hàng (demo)");
+}
+</script>
+
+</body>
+</html>
