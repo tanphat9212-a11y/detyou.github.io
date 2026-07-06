@@ -129,20 +129,6 @@ function searchProduct(){
     }
 }
 
-/* INIT */
-ddocument.addEventListener("DOMContentLoaded", () => {
-    const searchInput = document.getElementById("main-search-input");
-    const searchBtn = document.getElementById("main-search-btn");
-
-    if (!searchInput || !searchBtn) return;
-
-    function executeSearch() {
-        const keyword = searchInput.value.trim();
-        if (!keyword) return;
-
-        window.location.href =
-            "search.html?q=" + encodeURIComponent(keyword);
-    }
 document.addEventListener("DOMContentLoaded", () => {
     const searchInput = document.getElementById("main-search-input");
     const searchBtn = document.getElementById("main-search-btn");
