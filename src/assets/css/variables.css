@@ -1,0 +1,19 @@
+:root{
+
+--yellow:#FFD400;
+--orange:#F7941E;
+--red:#E30019;
+--blue:#288AD6;
+
+--text:#333333;
+--gray:#666666;
+--light:#f3f3f3;
+--border:#e5e5e5;
+
+--radius:12px;
+
+--container:1200px;
+
+--shadow:0 2px 12px rgba(0,0,0,.08);
+
+}

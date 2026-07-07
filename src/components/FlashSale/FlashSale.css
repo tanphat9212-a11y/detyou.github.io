@@ -1,0 +1,110 @@
+.flash-sale{
+    margin-top:20px;
+}
+
+.flash-wrapper{
+    background:#fff;
+    border-radius:12px;
+    padding:20px;
+}
+
+.flash-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.flash-title{
+    font-size:28px;
+    color:#e30019;
+    font-weight:700;
+}
+
+.countdown{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.countdown span{
+    width:34px;
+    height:34px;
+    border-radius:8px;
+    background:#222;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:bold;
+}
+
+.flash-card{
+    background:#fff;
+    border:1px solid #eee;
+    border-radius:10px;
+    padding:15px;
+    transition:.3s;
+}
+
+.flash-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+}
+
+.flash-image{
+    aspect-ratio:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.flash-image img{
+    max-width:100%;
+    max-height:170px;
+    transition:.35s;
+}
+
+.flash-card:hover img{
+    transform:scale(1.05);
+}
+
+.flash-name{
+    margin-top:12px;
+    height:42px;
+    overflow:hidden;
+    font-weight:600;
+}
+
+.flash-price{
+    margin-top:10px;
+    color:#e30019;
+    font-size:22px;
+    font-weight:700;
+}
+
+.flash-old{
+    margin-top:6px;
+    color:#888;
+    text-decoration:line-through;
+}
+
+.flash-old span{
+    margin-left:8px;
+    color:#e30019;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.flash-btn{
+    margin-top:14px;
+    width:100%;
+    height:42px;
+    border-radius:8px;
+    background:#ffd400;
+    font-weight:700;
+}
+
+.flash-btn:hover{
+    background:#ffca00;
+}

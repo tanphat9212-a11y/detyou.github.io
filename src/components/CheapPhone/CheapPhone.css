@@ -1,0 +1,111 @@
+.cheap-section{
+    margin-top:30px;
+}
+
+.cheap-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.cheap-header h2{
+    font-size:30px;
+    font-weight:700;
+}
+
+.cheap-header button{
+    height:40px;
+    padding:0 20px;
+    border-radius:999px;
+    background:#ffd400;
+    font-weight:600;
+}
+
+.cheap-grid{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:18px;
+}
+
+.cheap-card{
+    position:relative;
+    background:#fff;
+    border-radius:12px;
+    border:1px solid #ececec;
+    padding:18px;
+    transition:.3s;
+}
+
+.cheap-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+
+.cheap-discount{
+    position:absolute;
+    top:10px;
+    left:10px;
+    background:#e30019;
+    color:#fff;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:700;
+}
+
+.cheap-image{
+    height:170px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.cheap-image img{
+    max-width:100%;
+    max-height:150px;
+    transition:.3s;
+}
+
+.cheap-card:hover img{
+    transform:scale(1.08);
+}
+
+.cheap-card h3{
+    margin-top:14px;
+    height:44px;
+    font-size:15px;
+    line-height:22px;
+    overflow:hidden;
+}
+
+.cheap-price{
+    margin-top:10px;
+    color:#e30019;
+    font-size:22px;
+    font-weight:700;
+}
+
+.cheap-old{
+    margin-top:6px;
+    color:#888;
+    text-decoration:line-through;
+}
+
+@media(max-width:1200px){
+.cheap-grid{
+grid-template-columns:repeat(4,1fr);
+}
+}
+
+@media(max-width:768px){
+.cheap-grid{
+grid-template-columns:repeat(2,1fr);
+}
+}
+
+@media(max-width:480px){
+.cheap-grid{
+grid-template-columns:1fr;
+}
+}
