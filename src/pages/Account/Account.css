@@ -1,0 +1,77 @@
+.account-page{
+
+    margin-top:40px;
+
+    min-height:500px;
+
+}
+
+
+
+.account-box{
+
+    max-width:500px;
+
+    margin:auto;
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:15px;
+
+}
+
+
+
+.account-box h1{
+
+    margin-bottom:25px;
+
+}
+
+
+
+.account-info p{
+
+    margin-bottom:15px;
+
+}
+
+
+
+.account-info b{
+
+    margin-left:10px;
+
+}
+
+
+
+.account-link{
+
+    display:block;
+
+    margin-top:25px;
+
+    color:#0066cc;
+
+}
+
+
+
+.logout-btn{
+
+    margin-top:20px;
+
+    width:100%;
+
+    height:45px;
+
+    background:#e30019;
+
+    color:white;
+
+    border-radius:8px;
+
+}

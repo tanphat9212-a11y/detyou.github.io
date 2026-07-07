@@ -1,0 +1,47 @@
+.orders-page{
+
+    margin-top:40px;
+
+}
+
+
+
+.orders-page h1{
+
+    margin-bottom:25px;
+
+}
+
+
+
+.order-box{
+
+    background:#fff;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.order-box h3{
+
+    color:#e30019;
+
+}
+
+
+
+.order-box strong{
+
+    display:block;
+
+    margin-top:15px;
+
+    font-size:20px;
+
+}

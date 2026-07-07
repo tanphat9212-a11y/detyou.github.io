@@ -1,0 +1,87 @@
+.checkout-page{
+
+    margin-top:40px;
+
+}
+
+
+
+.checkout-box{
+
+    max-width:600px;
+
+    margin:auto;
+
+    background:#fff;
+
+    padding:30px;
+
+    border-radius:15px;
+
+}
+
+
+
+.checkout-box h1{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.checkout-box input{
+
+    width:100%;
+
+    height:45px;
+
+    margin-bottom:15px;
+
+    border:1px solid #ddd;
+
+    border-radius:8px;
+
+    padding:0 15px;
+
+}
+
+
+
+.checkout-total{
+
+    margin:20px 0;
+
+    font-size:22px;
+
+}
+
+
+
+.checkout-total b{
+
+    color:#e30019;
+
+    margin-left:10px;
+
+}
+
+
+
+.checkout-box button{
+
+    width:100%;
+
+    height:50px;
+
+    background:#e30019;
+
+    color:white;
+
+    border-radius:10px;
+
+    font-weight:700;
+
+}
