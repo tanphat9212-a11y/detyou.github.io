@@ -39,3 +39,4 @@ export default function CategorySection() { // Đổi tên hàm thành CategoryS
     </section>
   );
 }
+
