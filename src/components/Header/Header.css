@@ -112,3 +112,102 @@
 
     font-weight:600;
 }
+
+/* Khung bọc ô input và nút tìm kiếm chung một hàng */
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px; /* Bo góc nhẹ theo phong cách Thế Giới Di Động */
+  width: 100%;
+  max-width: 350px; /* Chiều rộng thanh tìm kiếm vừa phải */
+  height: 40px;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Đổ bóng nhẹ */
+  margin: 15px auto; /* Căn giữa thanh tìm kiếm ra giữa màn hình */
+}
+
+/* Ô nhập chữ dữ liệu */
+.search-bar input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 0 45px 0 15px; /* Chừa khoảng trống bên phải để không bị chữ đè lên nút kính lúp */
+  font-size: 14px;
+  color: #333333;
+  outline: none; /* Xóa đường viền đen mặc định khi click chuột vào ô */
+  background: transparent;
+}
+
+/* Nút bấm kính lúp đặt cố định ở góc bên phải */
+.search-btn {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 5px 10px;
+  color: #666666;
+  transition: color 0.2s;
+}
+
+.search-btn:hover {
+  color: #ffbc05; /* Đổi sang màu vàng đặc trưng khi di chuột vào */
+}
+
+/* Khung chứa bọc chung cho cả Tìm kiếm và Giỏ hàng nằm ngang hàng */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Đẩy tìm kiếm sang trái, giỏ hàng sang phải */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #ffbc05; /* Đổi nền Header thành màu vàng đặc trưng TGDD nếu thích */
+}
+
+/* Nút giỏ hàng tổng thể */
+.header-cart-btn {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.2); /* Nền mờ nhẹ */
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 8px 15px;
+  border-radius: 4px;
+  color: #333333;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.header-cart-btn:hover {
+  background-color: #ffffff; /* Nền trắng hẳn khi di chuột vào */
+  color: #000000;
+}
+
+.cart-icon {
+  font-size: 18px;
+  margin-right: 8px;
+}
+
+/* Chấm đỏ thông báo số lượng hàng */
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #f33a58; /* Màu đỏ nổi bật */
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 2px 6px;
+  min-width: 18px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}

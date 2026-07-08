@@ -7,9 +7,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 import Countdown from "./Countdown";
-import FlashProduct from "./FlashProduct";
+import FlashProduct from "./FlashProduct";  
 
-import flashSale from "../../assets/data/flashSale";
+import flashSale from "../../../src/data/flashSale";
 
 export default function FlashSale() {
   return (

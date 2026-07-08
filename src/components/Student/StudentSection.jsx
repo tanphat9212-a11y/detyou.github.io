@@ -1,31 +1,31 @@
-import "./Student.css";
+  import "./Student.css";
 
-import StudentBanner from "./StudentBanner";
-import StudentCard from "./StudentCard";
+  import StudentBanner from "./StudentBanner";
+  import StudentCard from "./StudentCard";
 
-import products from "../../assets/data/studentProducts";
+  import products from "../../assets/data/studentProducts";
 
-export default function StudentSection() {
-  return (
-    <section className="student-section">
+  export default function StudentSection() {
+    return (
+      <section className="student-section">
 
-      <div className="container">
+        <div className="container">
 
-        <StudentBanner />
+          <StudentBanner />
 
-        <div className="student-grid">
+          <div className="student-grid">
 
-          {products.map(item => (
-            <StudentCard
-              key={item.id}
-              item={item}
-            />
-          ))}
+            {products.map(item => (
+              <StudentCard
+                key={item.id}
+                item={item}
+              />
+            ))}
+
+          </div>
 
         </div>
 
-      </div>
-
-    </section>
-  );
-}
+      </section>
+    );
+  }

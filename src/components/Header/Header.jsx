@@ -1,63 +1,70 @@
+import React, { useState } from "react"; 
+import { useNavigate, Link } from "react-router-dom"; 
+import { useCart } from "../../context/CartContext"; 
 import "./Header.css";
 
 export default function Header() {
+  const navigate = useNavigate();
+  const { cartItems, user, logout } = useCart(); 
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const totalQuantity = cartItems ? cartItems.reduce((total, item) => total + item.quantity, 0) : 0;
+
+  const handleSearch = (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    if (searchTerm.trim() !== "") {
+      navigate(`/search?query=${encodeURIComponent(searchTerm.trim())}`);
+      setSearchTerm(""); 
+    }
+  };
+
   return (
-    <>
-      <div className="top-banner">
-        <img
-          src="https://cdnv2.tgdd.vn/mwg-static/common/Banner/84/45/8445a4e4d9d2b2b5f4e8cf96cf8e5d4d.png"
-          alt=""
-        />
-      </div>
+    <header className="main-header">
+      <div className="header-container">
+        
+        {/* ✨ NÚT TRANG CHỦ / LOGO (MỚI THÊM VÀO BÊN TRÁI) */}
+        <Link to="/" className="header-logo" style={{ textDecoration: "none", color: "#000", fontWeight: "bold", fontSize: "18px", marginRight: "15px" }}>
+          🏠 <span className="logo-text">TGDD Clone</span>
+        </Link>
 
-      <header className="header">
-        <div className="container header-container">
+        {/* Thanh tìm kiếm */}
+        <form onSubmit={handleSearch} className="search-bar" style={{ margin: "0" }}> 
+          <input
+            type="text"
+            placeholder="Bạn tìm gì..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <button type="submit" className="search-btn">🔍</button>
+        </form>
 
-          <div className="logo">
-            ShopVN
-          </div>
+        {/* Cụm nút bên phải: Giỏ hàng & Đăng nhập */}
+        <div className="header-right-actions" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+          {/* Nút Giỏ Hàng */}
+          <Link to="/checkout" className="header-cart-btn">
+            <span className="cart-icon">🛒</span>
+            <span className="cart-text">Giỏ hàng</span>
+            {totalQuantity > 0 && (
+              <span className="cart-badge">{totalQuantity}</span>
+            )}
+          </Link>
 
-          <div className="search">
-
-            <input
-              type="text"
-              placeholder="Bạn tìm gì..."
-            />
-
-            <button>
-              🔍
-            </button>
-
-          </div>
-
-          <nav className="menu">
-
-            <a href="#">Trang chủ</a>
-
-            <a href="#">Điện thoại</a>
-
-            <a href="#">Laptop</a>
-
-            <a href="#">Tablet</a>
-
-            <a href="#">Phụ kiện</a>
-
-          </nav>
-
-          <div className="header-right">
-
-            <button className="login">
-              Đăng nhập
-            </button>
-
-            <button className="cart">
-              🛒 Giỏ hàng
-            </button>
-
-          </div>
-
+          {/* Khối hiển thị Đăng nhập / Thành viên */}
+          {user ? (
+            <div className="user-logged-info" style={{ display: "flex", alignItems: "center", gap: "10px", padding: "8px 12px", backgroundColor: "rgba(255,255,255,0.2)", borderRadius: "4px" }}>
+              <span style={{ fontWeight: "bold" }}>👤 {user.username}</span>
+              <button onClick={logout} style={{ background: "none", border: "none", color: "#e10c00", cursor: "pointer", textDecoration: "underline", fontWeight: "bold" }}>
+                Thoát
+              </button>
+            </div>
+          ) : (
+            <Link to="/login" className="header-login-btn" style={{ textDecoration: "none", color: "#333", fontWeight: "bold", padding: "8px 12px", backgroundColor: "rgba(255,255,255,0.2)", borderRadius: "4px" }}>
+              🔑 Đăng nhập
+            </Link>
+          )}
         </div>
-      </header>
-    </>
+
+      </div>
+    </header>
   );
 }

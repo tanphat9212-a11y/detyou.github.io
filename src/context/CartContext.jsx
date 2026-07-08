@@ -1,246 +1,34 @@
-import {
+import React, { createContext, useContext, useState } from "react";
 
-    createContext,
+const CartContext = createContext();
 
-    useContext,
+export function CartProvider({ children }) {
+  const [cartItems, setCartItems] = useState([]);
 
-    useState
-
-}
-from "react";
-
-
-
-const CartContext=createContext();
-
-
-
-export function CartProvider({children}){
-
-
-    const [cart,setCart]=useState(
-
-
-        JSON.parse(
-
-            localStorage.getItem("cart")
-
-        )
-
-        ||
-
-        []
-
-    );
-
-
-
-
-    function saveCart(data){
-
-
-        setCart(data);
-
-
-        localStorage.setItem(
-
-            "cart",
-
-            JSON.stringify(data)
-
+  // Hàm thêm sản phẩm vào giỏ hàng
+  const addToCart = (product) => {
+    setCartItems((prevItems) => {
+      // Kiểm tra sản phẩm đã tồn tại trong giỏ chưa
+      const isExist = prevItems.find((item) => item.id === product.id);
+      if (isExist) {
+        // Nếu có rồi thì tăng số lượng lên 1
+        return prevItems.map((item) =>
+          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
         );
-
-
-    }
-
-
-
-
-    const addToCart=(product)=>{
-
-
-        const exist=cart.find(
-
-            item=>item.id===product.id
-
-        );
-
-
-
-        let newCart;
-
-
-
-        if(exist){
-
-
-            newCart=cart.map(item=>
-
-
-                item.id===product.id
-
-                ?
-
-                {
-
-                    ...item,
-
-                    quantity:item.quantity+1
-
-                }
-
-                :
-
-                item
-
-
-            );
-
-
-
-        }else{
-
-
-            newCart=[
-
-                ...cart,
-
-                {
-
-                    ...product,
-
-                    quantity:1
-
-                }
-
-            ];
-
-
-        }
-
-
-
-        saveCart(newCart);
-
-
-    };
-
-
-
-
-
-    const removeCart=(id)=>{
-
-
-        const newCart=cart.filter(
-
-            item=>item.id!==id
-
-        );
-
-
-        saveCart(newCart);
-
-
-    };
-
-
-
-
-
-    const updateQuantity=(id,type)=>{
-
-
-        const newCart=cart.map(item=>{
-
-
-            if(item.id===id){
-
-
-
-                let quantity=item.quantity;
-
-
-
-                if(type==="plus"){
-
-                    quantity++;
-
-                }
-
-
-
-                if(type==="minus" && quantity>1){
-
-                    quantity--;
-
-                }
-
-
-
-                return{
-
-                    ...item,
-
-                    quantity
-
-                };
-
-
-            }
-
-
-
-            return item;
-
-
-        });
-
-
-
-        saveCart(newCart);
-
-
-    };
-
-
-
-
-
-    return(
-
-        <CartContext.Provider
-
-
-            value={{
-
-                cart,
-
-                addToCart,
-
-                removeCart,
-
-                updateQuantity
-
-            }}
-
-
-        >
-
-
-            {children}
-
-
-        </CartContext.Provider>
-
-    );
-
+      }
+      // Nếu chưa có thì thêm mới vào mảng với số lượng ban đầu là 1
+      return [...prevItems, { ...product, quantity: 1 }];
+    });
+    alert(`Đã thêm ${product.name} vào giỏ hàng!`);
+  };
+
+  return (
+    <CartContext.Provider value={{ cartItems, addToCart }}>
+      {children}
+    </CartContext.Provider>
+  );
 }
 
-
-
-export function useCart(){
-
-    return useContext(CartContext);
-
+export function useCart() {
+  return useContext(CartContext);
 }

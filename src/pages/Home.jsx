@@ -1,4 +1,4 @@
-export default function Home() {
+function HomeContent() {
   return (
     <>
       <div className="page">
@@ -13,7 +13,7 @@ export default function Home() {
 
 
 import BannerSlider from "../components/Banner/BannerSlider";
-import CategorySection from "../components/Category/CategorySection";
+import CategorySection from "../components/Category/Category";  
 import DealSection from "../components/Deal/DealSection";
 import CouponSection from "../components/Coupon/CouponSection";
 import FlashSale from "../components/FlashSale/FlashSale";
