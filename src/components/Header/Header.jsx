@@ -1,117 +1,63 @@
-import {
-    useCart
-}
-from "../../context/CartContext";
 import "./Header.css";
 
-import SearchBox from "../Search/SearchBox";
+export default function Header() {
+  return (
+    <>
+      <div className="top-banner">
+        <img
+          src="https://cdnv2.tgdd.vn/mwg-static/common/Banner/84/45/8445a4e4d9d2b2b5f4e8cf96cf8e5d4d.png"
+          alt=""
+        />
+      </div>
 
-import {
-    Link
-}
-from "react-router-dom";
+      <header className="header">
+        <div className="container header-container">
 
-import {
-    useCart
-}
-from "../../context/CartContext";
-export default function Header(){
-const {
+          <div className="logo">
+            ShopVN
+          </div>
 
-    cart
+          <div className="search">
 
-}=useCart();
+            <input
+              type="text"
+              placeholder="Bạn tìm gì..."
+            />
 
-    return(
+            <button>
+              🔍
+            </button>
 
-        <header className="header">
+          </div>
 
+          <nav className="menu">
 
-            <div className="container">
+            <a href="#">Trang chủ</a>
 
+            <a href="#">Điện thoại</a>
 
-                <div className="header-content">
+            <a href="#">Laptop</a>
 
+            <a href="#">Tablet</a>
 
-                    <Link
+            <a href="#">Phụ kiện</a>
 
-                        to="/"
+          </nav>
 
-                        className="logo"
+          <div className="header-right">
 
-                    >
+            <button className="login">
+              Đăng nhập
+            </button>
 
-                        TGDD
+            <button className="cart">
+              🛒 Giỏ hàng
+            </button>
 
-                    </Link>
+          </div>
 
-
-
-                    <SearchBox />
-
-
-
-                    <div className="header-menu">
-
-
-                        <Link to="/products">
-
-                            Sản phẩm
-
-                        </Link>
-
-
-
-                        <Link
-
-                        to="/cart"
-
-                        className="cart-link"
-
-                        >
-
-                              🛒 Giỏ hàng
-
-                              <span className="cart-count">
-
-                                  {
-                                     cart.reduce(
- 
-                                            (sum,item)=>
-
-                                            sum + item.quantity
- 
-                                            ,0
-                                        )
-                                  }
-
-                              </span>
-
-
-                        </Link>
-                        <Link to="/cart">
-
-                            🛒 Giỏ hàng
-
-                        </Link>
-
-                        <Link to="/account">
-
-                            👤 Tài khoản
-
-                        </Link>
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-
-        </header>
-
-    );
-
+        </div>
+      </header>
+    </>
+  );
 }

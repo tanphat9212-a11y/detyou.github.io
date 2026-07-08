@@ -1,151 +1,114 @@
-.header{
-
+.top-banner{
+    width:100%;
     background:#ffd400;
+}
 
+.top-banner img{
+    display:block;
+    width:100%;
+}
+
+.header{
+    background:#ffd400;
     position:sticky;
-
     top:0;
-
-    z-index:1000;
-
+    z-index:999;
 }
 
+.header-container{
 
+    max-width:1200px;
+    margin:auto;
 
-.header-content{
-
-    min-height:70px;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:25px;
-
-}
-
-
-
-
-.logo{
-
-    font-size:32px;
-
-    font-weight:800;
-
-    color:#000;
-
-    white-space:nowrap;
-
-}
-
-
-
-.header .search-box{
-
-    flex:1;
-
-    max-width:600px;
-
-}
-
-
-
-.header-menu{
+    height:64px;
 
     display:flex;
 
     align-items:center;
 
     gap:20px;
-
 }
-
-
-
-.header-menu a{
-
-    color:#000;
-
-    font-weight:600;
-
-    white-space:nowrap;
-
-}
-
-
-
-@media(max-width:768px){
-
-
-.header-content{
-
-flex-wrap:wrap;
-
-padding:10px 0;
-
-}
-
 
 .logo{
 
-font-size:25px;
+    font-size:30px;
 
+    font-weight:700;
+
+    color:#000;
+
+    min-width:140px;
 }
 
+.search{
 
-.header .search-box{
+    flex:1;
 
-order:3;
-
-width:100%;
-
+    display:flex;
 }
 
+.search input{
 
+    flex:1;
 
-.header-menu{
+    height:42px;
 
-margin-left:auto;
+    border:none;
 
+    border-radius:8px 0 0 8px;
+
+    padding:0 15px;
+
+    outline:none;
+
+    font-size:15px;
 }
 
+.search button{
 
+    width:55px;
+
+    border:none;
+
+    background:#fff;
+
+    border-radius:0 8px 8px 0;
+
+    font-size:20px;
 }
-.cart-link{
 
-    position:relative;
-
-}
-
-
-
-.cart-count{
-
-    position:absolute;
-
-    top:-12px;
-
-    right:-18px;
-
-    background:#e30019;
-
-    color:white;
-
-    width:22px;
-
-    height:22px;
-
-    border-radius:50%;
+.menu{
 
     display:flex;
 
-    justify-content:center;
+    gap:18px;
+}
 
-    align-items:center;
+.menu a{
 
-    font-size:12px;
+    font-size:14px;
 
-    font-weight:bold;
+    color:#000;
 
+    font-weight:500;
+}
+
+.header-right{
+
+    display:flex;
+
+    gap:10px;
+}
+
+.header-right button{
+
+    border:none;
+
+    padding:10px 15px;
+
+    border-radius:8px;
+
+    background:#fff;
+
+    font-weight:600;
 }
