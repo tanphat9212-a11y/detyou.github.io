@@ -1,24 +1,14 @@
-import {
-    AuthProvider
-}
-from "./context/AuthContext";
-
-
-import {
-    OrderProvider
-}
-from "./context/OrderContext";
-
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { HelmetProvider } from "react-helmet-async";
+
+import AppRouter from "./router/AppRouter";
 
 import { AuthProvider } from "./context/AuthContext";
 import { CartProvider } from "./context/CartContext";
 import { OrderProvider } from "./context/OrderContext";
 
-import AppRouter from "./router/AppRouter";
-
+// CSS
 import "./assets/css/reset.css";
 import "./assets/css/variables.css";
 import "./assets/css/global.css";
@@ -28,16 +18,18 @@ import "./assets/css/responsive.css";
 import "./components/Common/Common.css";
 import "./components/Floating/Floating.css";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(
   <React.StrictMode>
     <HelmetProvider>
-      <OrderProvider>
-        <AuthProvider>
-          <CartProvider>
+      <AuthProvider>
+        <CartProvider>
+          <OrderProvider>
             <AppRouter />
-          </CartProvider>
-        </AuthProvider>
-      </OrderProvider>
+          </OrderProvider>
+        </CartProvider>
+      </AuthProvider>
     </HelmetProvider>
   </React.StrictMode>
 );
