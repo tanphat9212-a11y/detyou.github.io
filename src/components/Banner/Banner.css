@@ -1,0 +1,39 @@
+.banner{
+    margin-top:15px;
+}
+
+.banner .container{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:3fr 1fr;
+
+    gap:12px;
+}
+
+.banner-left img{
+
+    width:100%;
+
+    border-radius:10px;
+}
+
+.banner-right{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+}
+
+.banner-right img{
+
+    width:100%;
+
+    border-radius:10px;
+}
