@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 
 // Nhập cấu trúc Layout chung
 import Layout from "../components/Layout/Layout";
@@ -18,7 +18,7 @@ import NewsDetail from "../pages/NewsDetail/NewsDetail"; // ✨ 1. Đã chèn d�
 
 export default function AppRouter() {
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
+    <HashRouter basename={import.meta.env.BASE_URL}>
       <Routes>
         
         {/* Trang chủ */}
@@ -61,7 +61,7 @@ export default function AppRouter() {
         />
 
       </Routes>
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
+    <HashRouter basename={import.meta.env.BASE_URL}>
   );
 }
 
