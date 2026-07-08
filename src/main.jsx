@@ -24,11 +24,13 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <HelmetProvider>
-      <CartProvider>
-        <OrderProvider>
-          {/AppRouter /}
-        </OrderProvider>
-      </CartProvider>
+      <AuthProvider>
+        <CartProvider>
+          <OrderProvider>
+            <AppRouter />
+          </OrderProvider>
+        </CartProvider>
+      </AuthProvider>
     </HelmetProvider>
   </React.StrictMode>
 );
