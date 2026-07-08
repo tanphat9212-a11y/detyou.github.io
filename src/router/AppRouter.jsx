@@ -18,7 +18,7 @@ import NewsDetail from "../pages/NewsDetail/NewsDetail"; // ✨ 1. Đã chèn d�
 
 export default function AppRouter() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
         
         {/* Trang chủ */}
@@ -61,7 +61,7 @@ export default function AppRouter() {
         />
 
       </Routes>
-    </BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
   );
 }
 
