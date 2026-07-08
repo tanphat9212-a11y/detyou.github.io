@@ -16,7 +16,7 @@ import NewsDetail from "../pages/NewsDetail/NewsDetail";
 
 export default function AppRouter() {
   return (
-    <HashRouter basename={import.meta.env.BASE_URL}>
+    <HashRouter>
       <Routes>
 
         <Route path="/" element={<Layout><Home /></Layout>} />
