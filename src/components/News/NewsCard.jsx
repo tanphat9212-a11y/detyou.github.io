@@ -37,3 +37,4 @@ export default function NewsCard({ item }) {
     </Link>
   );
 }
+
