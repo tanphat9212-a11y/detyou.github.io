@@ -14,22 +14,21 @@ import "./assets/css/variables.css";
 import "./assets/css/global.css";
 import "./assets/css/layout.css";
 import "./assets/css/responsive.css";
-
 import "./components/Common/Common.css";
 import "./components/Floating/Floating.css";
 
+// Khởi tạo root
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
+// Render cấu trúc component hoàn chỉnh
 root.render(
   <React.StrictMode>
     <HelmetProvider>
-      <AuthProvider>
-        <CartProvider>
-          <OrderProvider>
-            <AppRouter />
-          </OrderProvider>
-        </CartProvider>
-      </AuthProvider>
+      <CartProvider>
+        <OrderProvider>
+          {/AppRouter /}
+        </OrderProvider>
+      </CartProvider>
     </HelmetProvider>
   </React.StrictMode>
 );
